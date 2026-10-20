@@ -396,6 +396,7 @@ function downloadAppFile(filename, content, mimeType) {
         return;
       } else if(button.hasAttribute("data-close-barcode")){closeBarcodeModal();return;}
       else if(button.hasAttribute("data-print-barcode")){window.print();return;}
+      else if(text.includes("notifications")){showAppNotice("اعلان‌های نمونه","وضعیت داده‌ها در همین صفحه قابل بررسی است؛ اعلان سرور واقعی متصل نیست.");return;}
       else if(text.includes("view_column")){if(catalogTable)catalogTable.classList.toggle("catalog-compact");showAppNotice("نمایش جدول",catalogTable&&catalogTable.classList.contains("catalog-compact")?"نمایش فشرده فعال شد.":"نمایش استاندارد فعال شد.");return;}
       else if(button.hasAttribute("data-add-category"))addCategory();
       else if(button.hasAttribute("data-add-unit"))addUnit();
