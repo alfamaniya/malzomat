@@ -31,8 +31,6 @@
   };
 
   function applyFallback() {
-    const fontAvailable = document.fonts && document.fonts.check('24px "Material Symbols Outlined"');
-    if (fontAvailable) return;
     const icons = document.querySelectorAll(".material-symbols-outlined");
     icons.forEach(function (icon) {
       if (icon.dataset.iconGlyph) return;
@@ -46,10 +44,5 @@
     document.documentElement.classList.add("icons-fallback");
   }
 
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(applyFallback).catch(applyFallback);
-  } else {
-    applyFallback();
-  }
-  window.addEventListener("offline", applyFallback);
+  applyFallback();
 })();
