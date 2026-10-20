@@ -264,7 +264,11 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
     }
     if (dateInputs[0]) dateInputs[0].value = "1405/07/01";
     if (dateInputs[1]) dateInputs[1].value = "1405/07/30";
-    if (unitFilter) unitFilter.dataset.reportRole = "unit";
+    if (unitFilter) {
+      const units = Array.from(new Set(database.items.map(function (item) { return item.unit; })));
+      unitFilter.innerHTML = "<option value=\"\">تمام واحدها</option>" + units.map(function (unit) { return "<option value=\"" + appEscape(unit) + "\">" + appEscape(unit) + "</option>"; }).join("");
+      unitFilter.dataset.reportRole = "unit";
+    }
     if (shiftFilter) shiftFilter.dataset.reportRole = "shift";
     if (typeFilter) typeFilter.dataset.reportRole = "type";
     if (rowsPerPage) {
