@@ -95,7 +95,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
     gatePassNo: options.gatePassNo || "", itemId: item.id, itemCode: item.code, itemName: item.name,
     category: item.category, unit: item.unit, quantity: Number(quantity || 0), unitPrice: Number(item.unitPrice || 0),
     destination: destination || "انبار مرکزی قطعات و ملزومات", warehouse: item.location || "انبار مرکزی قطعات و ملزومات",
-    operator: (database.users && database.users[0] && database.users[0].name) || "کاربر نمونه",
+    operator: (database.users && database.users[0] && database.users[0].name) || "—",
     status: options.status || (type === "gatePass" ? "completed" : "approved"), shift: "shift1", note: options.note || ""
   };
   database.transactions = database.transactions || []; database.transactions.push(transaction); return transaction;
@@ -224,9 +224,9 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
         const entry = gateItems[0]; const item = entry && database.items.find(function (x) { return x.code === entry.itemCode; });
         if (item) appAddTransaction(database, item, "gatePass", entry.quantity, "توقیف گیت", {gatePassNo:"GP-HOLD-" + Date.now(),status:"held",note:reason});
         saveAppDatabase(database); activeLogFilter = "held"; renderLog();
-        showAppNotice("مغایرت ثبت شد", "گزارش توقف بار به سوابق نمونه اضافه شد.", "error");
+        showAppNotice("مغایرت ثبت شد", "گزارش توقف بار ثبت شد.", "error");
       } else if (text.includes("notifications")) {
-        showAppNotice("اعلان‌های نمونه", "اعلان واقعی سرور در این نسخه متصل نیست.");
+        showAppNotice("اعلان‌ها", "اعلان سرور واقعی متصل نیست.");
       } else if (text.includes("filter_list")) {
         const query = window.prompt("کد یا نام کالا را برای فیلتر وارد کنید؛ برای حذف فیلتر کادر را خالی بگذارید:");
         if (query === null) return;
