@@ -500,3 +500,38 @@ button,input,select,textarea{font:inherit}
 
 
 .mr-auto{margin-right:auto}.ml-auto{margin-left:auto}
+
+
+/* Local preflight: keep the UI styled when the Tailwind CDN is unavailable. */
+*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4}
+body{margin:0;line-height:inherit}
+hr{height:0;color:inherit;border-top-width:1px}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
+blockquote,dl,dd,figure,p,pre{margin:0}
+a{color:inherit;text-decoration:inherit}
+b,strong{font-weight:bolder}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sub{bottom:-.25em}sup{top:-.5em}
+table{text-indent:0;border-color:inherit;border-collapse:collapse}
+button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}
+button,select{text-transform:none}
+button,input:where([type=button],[type=reset],[type=submit]){appearance:button;background-color:transparent;background-image:none}
+button,[role=button]{cursor:pointer}
+:disabled{cursor:default}
+input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}
+textarea{resize:vertical}
+img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}
+img,video{max-width:100%;height:auto}
+[hidden]{display:none}
+@media(min-width:640px){.sm\:space-x-4> :not([hidden]) ~ :not([hidden]){margin-left:1rem}}
+/* Functional toggle replacement for peer/after utilities in the settings screen. */
+label.relative.inline-flex.items-center.cursor-pointer{position:relative;display:inline-flex;align-items:center;cursor:pointer}
+label.relative.inline-flex.items-center.cursor-pointer>input.peer{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+label.relative.inline-flex.items-center.cursor-pointer>input.peer+div{position:relative;width:2.75rem;height:1.5rem;border-radius:9999px;background-color:#dce9ff;transition:background-color .2s ease}
+label.relative.inline-flex.items-center.cursor-pointer>input.peer+div::after{content:"";position:absolute;inset-inline-start:2px;top:2px;width:1.25rem;height:1.25rem;border-radius:9999px;background:#fff;transition:transform .2s ease}
+label.relative.inline-flex.items-center.cursor-pointer>input.peer:checked+div{background-color:#00236f}
+html[dir=rtl] label.relative.inline-flex.items-center.cursor-pointer>input.peer:checked+div::after{transform:translateX(-100%)}
+html[dir=ltr] label.relative.inline-flex.items-center.cursor-pointer>input.peer:checked+div::after{transform:translateX(100%)}
+
