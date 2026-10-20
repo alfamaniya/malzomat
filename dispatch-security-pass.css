@@ -1,0 +1,8 @@
+/* عملیات گیت خروج و تطبیق فیزیکی */
+.gate-app-status{display:inline-flex;gap:6px;align-items:center;padding:5px 10px;border-radius:999px;background:#eff4ff;color:#00236f;font-size:.8rem}
+.gate-app-count{width:76px;min-height:32px;border:1px solid #c5c5d3;border-radius:7px;padding:3px 6px;text-align:center;background:#fff;color:#0b1c30}
+.gate-app-row-mismatch{background:#fff1f0!important;outline:1px solid #ba1a1a;outline-offset:-1px}
+.app-toast{position:fixed;z-index:1000;bottom:20px;left:20px;max-width:min(420px,calc(100vw - 40px));padding:14px 18px;background:#0b1c30;color:#fff;border-radius:12px;box-shadow:0 8px 30px #0b1c3033;line-height:1.8}.app-toast strong{display:block;margin-bottom:3px}.app-toast p{margin:0;color:#eaf1ff;font-size:.85rem}
+.gate-app-log-filter{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.gate-app-log-filter button{border:1px solid #c5c5d3;border-radius:999px;padding:6px 12px;background:#fff;color:#444651;cursor:pointer}.gate-app-log-filter button[aria-pressed=true]{background:#00236f;color:#fff;border-color:#00236f}
+@media(max-width:768px){.gate-app-count{width:62px}}
+@media print{aside,header,button,.gate-app-log-filter{display:none!important}main{margin:0!important;padding:0!important}}
