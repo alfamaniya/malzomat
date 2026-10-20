@@ -237,12 +237,12 @@ function downloadAppFile(filename, content, mimeType) {
       return "<div class=\"settings-panel-toolbar\"><div><h2>مقصدها و محل‌های تحویل</h2><p>مقصدهای استفاده‌شده در حواله مصرف و برگه خروج.</p></div><button class=\"settings-panel-action\" data-add-destination>تعریف مقصد جدید</button></div><div class=\"overflow-x-auto\"><table><thead><tr><th>کد مقصد</th><th>عنوان مقصد</th><th>مسئول تحویل</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody>"+(database.destinations||[]).map(function(d){return "<tr><td>"+appEscape(d.id)+"</td><td>"+appEscape(d.name)+"</td><td>"+appEscape(d.manager||"—")+"</td><td><span class=\"settings-status-badge\">"+(d.status==="active"?"فعال":"غیرفعال")+"</span></td><td><button class=\"settings-panel-action secondary\" data-edit-destination=\""+appEscape(d.id)+"\">ویرایش</button> <button class=\"settings-panel-action secondary\" data-delete-destination=\""+appEscape(d.id)+"\">حذف</button></td></tr>";}).join("")+"</tbody></table></div>";
     }
     if(key==="tab-approvals"){
-      return "<h2>گردش کار و سطوح تأیید</h2><p>قواعد زیر برای رفتار نمونه صفحات استفاده می‌شوند.</p><div class=\"grid grid-cols-1 md:grid-cols-2 gap-space-md\"><label><span>تأیید مدیر برای حواله مصرف الزامی باشد</span><input type=\"checkbox\" data-setting-approval "+(database.settings.approvalRequired?"checked":"")+"></label><label><span>هشدار نقطه سفارش فعال باشد</span><input type=\"checkbox\" data-setting-lowstock "+(database.settings.lowStockAlerts?"checked":"")+"></label></div><button class=\"settings-panel-action\" data-save-approvals>ذخیره قوانین</button>";
+      return "<h2>گردش کار و سطوح تأیید</h2><p>قواعد گردش کار سامانه.</p><div class=\"grid grid-cols-1 md:grid-cols-2 gap-space-md\"><label><span>تأیید مدیر برای حواله مصرف الزامی باشد</span><input type=\"checkbox\" data-setting-approval "+(database.settings.approvalRequired?"checked":"")+"></label><label><span>هشدار نقطه سفارش فعال باشد</span><input type=\"checkbox\" data-setting-lowstock "+(database.settings.lowStockAlerts?"checked":"")+"></label></div><button class=\"settings-panel-action\" data-save-approvals>ذخیره قوانین</button>";
     }
     if(key==="tab-numbering"){
-      return "<h2>قالب شماره‌گذاری اسناد</h2><p>پیشوند و شماره بعدی سند برای ایجاد ردیف‌های آزمایشی ذخیره می‌شود.</p><div class=\"grid grid-cols-1 md:grid-cols-3 gap-space-md\"><label>پیشوند حواله<input type=\"text\" data-numbering=\"transactionPrefix\" value=\""+appEscape(database.settings.transactionPrefix||"HW")+"\"></label><label>پیشوند خروج گیت<input type=\"text\" data-numbering=\"gatePassPrefix\" value=\""+appEscape(database.settings.gatePassPrefix||"GP")+"\"></label><label>شماره بعدی کد کالا<input type=\"number\" min=\"1\" data-numbering=\"nextSkuNumber\" value=\""+Number(database.settings.nextSkuNumber||101)+"\"></label></div><button class=\"settings-panel-action\" data-save-numbering>ذخیره قالب‌ها</button>";
+      return "<h2>قالب شماره‌گذاری اسناد</h2><p>پیشوند و شماره بعدی سند برای شماره‌گذاری اسناد جدید ذخیره می‌شود.</p><div class=\"grid grid-cols-1 md:grid-cols-3 gap-space-md\"><label>پیشوند حواله<input type=\"text\" data-numbering=\"transactionPrefix\" value=\""+appEscape(database.settings.transactionPrefix||"HW")+"\"></label><label>پیشوند خروج گیت<input type=\"text\" data-numbering=\"gatePassPrefix\" value=\""+appEscape(database.settings.gatePassPrefix||"GP")+"\"></label><label>شماره بعدی کد کالا<input type=\"number\" min=\"1\" data-numbering=\"nextSkuNumber\" value=\""+Number(database.settings.nextSkuNumber||101)+"\"></label></div><button class=\"settings-panel-action\" data-save-numbering>ذخیره قالب‌ها</button>";
     }
-    return "<div class=\"settings-panel-toolbar\"><div><h2>سطوح دسترسی و کاربران</h2><p>کاربران نمونه سامانه و وضعیت حساب کاربری.</p></div><button class=\"settings-panel-action\" data-add-user>افزودن کاربر</button></div><div class=\"overflow-x-auto\"><table><thead><tr><th>نام کاربر</th><th>سمت</th><th>واحد</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody>"+(database.users||[]).map(function(u){return "<tr><td>"+appEscape(u.name)+"</td><td>"+appEscape(u.role)+"</td><td>"+appEscape(u.department||"—")+"</td><td><span class=\"settings-status-badge\">"+(u.status==="active"?"فعال":"غیرفعال")+"</span></td><td><button class=\"settings-panel-action secondary\" data-toggle-user=\""+appEscape(u.id)+"\">"+(u.status==="active"?"غیرفعال‌کردن":"فعال‌کردن")+"</button></td></tr>";}).join("")+"</tbody></table></div>";
+    return "<div class=\"settings-panel-toolbar\"><div><h2>سطوح دسترسی و کاربران</h2><p>کاربران سامانه و وضعیت حساب کاربری.</p></div><button class=\"settings-panel-action\" data-add-user>افزودن کاربر</button></div><div class=\"overflow-x-auto\"><table><thead><tr><th>نام کاربر</th><th>سمت</th><th>واحد</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody>"+(database.users||[]).map(function(u){return "<tr><td>"+appEscape(u.name)+"</td><td>"+appEscape(u.role)+"</td><td>"+appEscape(u.department||"—")+"</td><td><span class=\"settings-status-badge\">"+(u.status==="active"?"فعال":"غیرفعال")+"</span></td><td><button class=\"settings-panel-action secondary\" data-toggle-user=\""+appEscape(u.id)+"\">"+(u.status==="active"?"غیرفعال‌کردن":"فعال‌کردن")+"</button></td></tr>";}).join("")+"</tbody></table></div>";
   }
 
   function setupGeneratedPanels() {
@@ -330,20 +330,20 @@ function downloadAppFile(filename, content, mimeType) {
   function addUser() {
     openAppDialog("افزودن کاربر سامانه",[{name:"name",label:"نام و نام خانوادگی",type:"text"},{name:"role",label:"سمت سازمانی",type:"text"},{name:"department",label:"واحد سازمانی",type:"text"},{name:"status",label:"وضعیت حساب",type:"select",options:[{value:"active",label:"فعال"},{value:"inactive",label:"غیرفعال"}]}],function(v){
       database.users.push({id:"USR-"+String(database.users.length+1).padStart(3,"0"),name:v.name,role:v.role,department:v.department,status:v.status});
-      saveAppDatabase(database);renderSettingsPanels();showAppNotice("کاربر ثبت شد",v.name+" به فهرست کاربران نمونه اضافه شد.");
+      saveAppDatabase(database);renderSettingsPanels();showAppNotice("کاربر ثبت شد",v.name+" به فهرست کاربران اضافه شد.");
     });
   }
 
 
   async function resetDatabaseSeed() {
-    if (!window.confirm("تمام تغییرات آزمایشی ذخیره‌شده در این مرورگر پاک و داده‌های اولیه database.json جایگزین شوند؟")) return;
+    if (!window.confirm("تمام تغییرات محلی ذخیره‌شده در این مرورگر پاک و داده‌های پایه database.json بارگذاری شوند؟")) return;
     try {
       const response = await fetch(new URL("database.json", window.location.href), { cache: "no-store" });
       if (!response.ok) throw new Error("HTTP " + response.status);
       const seed = await response.json();
       localStorage.setItem(APP_DB_STORAGE_KEY, JSON.stringify(seed));
       localStorage.removeItem("malzomat.voucher.draft.v1");
-      showAppNotice("داده‌های نمونه بازگردانی شد", "صفحه برای بارگذاری دوباره به‌روزرسانی می‌شود.");
+      showAppNotice("داده‌های پایگاه بازگردانی شد", "صفحه برای بارگذاری دوباره به‌روزرسانی می‌شود.");
       setTimeout(function () { window.location.reload(); }, 450);
     } catch (error) {
       console.error(error);
@@ -396,7 +396,7 @@ function downloadAppFile(filename, content, mimeType) {
         return;
       } else if(button.hasAttribute("data-close-barcode")){closeBarcodeModal();return;}
       else if(button.hasAttribute("data-print-barcode")){window.print();return;}
-      else if(text.includes("notifications")){showAppNotice("اعلان‌های نمونه","وضعیت داده‌ها در همین صفحه قابل بررسی است؛ اعلان سرور واقعی متصل نیست.");return;}
+      else if(text.includes("notifications")){showAppNotice("اعلان‌ها","وضعیت داده‌ها در همین صفحه قابل بررسی است؛ اعلان سرور واقعی متصل نیست.");return;}
       else if(text.includes("view_column")){if(catalogTable)catalogTable.classList.toggle("catalog-compact");showAppNotice("نمایش جدول",catalogTable&&catalogTable.classList.contains("catalog-compact")?"نمایش فشرده فعال شد.":"نمایش استاندارد فعال شد.");return;}
       else if(button.hasAttribute("data-add-category"))addCategory();
       else if(button.hasAttribute("data-add-unit"))addUnit();
