@@ -334,6 +334,23 @@ function downloadAppFile(filename, content, mimeType) {
     });
   }
 
+
+  async function resetDatabaseSeed() {
+    if (!window.confirm("تمام تغییرات آزمایشی ذخیره‌شده در این مرورگر پاک و داده‌های اولیه database.json جایگزین شوند؟")) return;
+    try {
+      const response = await fetch(new URL("database.json", window.location.href), { cache: "no-store" });
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      const seed = await response.json();
+      localStorage.setItem(APP_DB_STORAGE_KEY, JSON.stringify(seed));
+      localStorage.removeItem("malzomat.voucher.draft.v1");
+      showAppNotice("داده‌های نمونه بازگردانی شد", "صفحه برای بارگذاری دوباره به‌روزرسانی می‌شود.");
+      window.location.reload();
+    } catch (error) {
+      console.error(error);
+      showAppNotice("بازگردانی ناموفق بود", "اجرای صفحه را از طریق IIS یا وب‌سرور محلی بررسی کنید.", "error");
+    }
+  }
+
   function init() {
     catalogTable=document.querySelector("#content-tab-coding table");
     catalogBody=catalogTable?catalogTable.querySelector("tbody"):null;
@@ -348,6 +365,8 @@ function downloadAppFile(filename, content, mimeType) {
       if(parts&&parts.inputs[0]&&database.items.some(function(item){return item.code===parts.inputs[0].value;}))editCatalogItem(parts.inputs[0].value);
       else if(parts&&parts.inputs[0])parts.inputs[0].value="MLZ-"+String(Math.max(Number(database.settings.nextSkuNumber||101),database.items.length+1)).padStart(4,"0");
     }
+    const resetSeedButton=document.getElementById("btn-reset-sample-db");
+    if(resetSeedButton)resetSeedButton.addEventListener("click",resetDatabaseSeed);
     document.addEventListener("click",function(event){
       const pageButton=event.target.closest("[data-settings-page]");
       if(pageButton&&!pageButton.disabled){currentPage=Number(pageButton.dataset.settingsPage)||1;renderCatalog();return;}
