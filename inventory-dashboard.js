@@ -325,6 +325,8 @@ function appCategoryOptions(database) {
       const text = button.innerText.replace(/\s+/g, " ").trim();
       if (button.id === "btn-refresh") {
         loadAppDatabase().then(function (loaded) { database = loaded; renderProducts(); renderTransactions(); showAppNotice("داده‌ها تازه شد", "فهرست کالاها و گردش انبار از فایل نمونه و تغییرات محلی دوباره خوانده شدند."); }).catch(function () { showAppNotice("خطا", "امکان بارگذاری دوباره داده‌ها وجود ندارد.", "error"); });
+      } else if (text.includes("notifications")) {
+        showAppNotice("اعلان‌های نمونه", "در این نسخه اعلان‌ها بر اساس داده‌های نمونه نمایش داده می‌شوند.");
       } else if (text.includes("تعریف کالای جدید")) {
         showAddItemDialog();
       } else if (text.includes("بارکدخوان")) {
