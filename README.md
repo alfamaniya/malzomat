@@ -25,14 +25,13 @@ malzomat/
 ├── system-settings.css
 ├── system-settings.js
 ├── tailwind-compat.css
-├── tailwind-config.js
 ├── icon-fallback.js
 ├── database.json
 ├── persian_enterprise_wms_logistics.md
 └── README.md
 ```
 
-هر صفحه CSS و JavaScript مستقل خودش را دارد. فایل `tailwind-compat.css` لایهٔ کمکی محلی برای کلاس‌های نمایشی است؛ `tailwind-config.js` تنظیمات مشترک رنگ و تایپوگرافی را از HTML جدا می‌کند و `icon-fallback.js` در صورت نبود فونت آیکون، نمادهای متنی جایگزین می‌گذارد. فونت‌های Google در حالت بدون اینترنت با فونت‌های جایگزین مرورگر نمایش داده می‌شوند.
+هر صفحه CSS و JavaScript مستقل خودش را دارد. فایل `tailwind-compat.css` کلاس‌های نمایشی موردنیاز را به‌صورت محلی فراهم می‌کند و `icon-fallback.js` در حالت آفلاین نمادهای متنی جایگزین می‌گذارد. وابستگی اجرایی به CDN یا فونت‌های آنلاین وجود ندارد؛ فونت‌های متنی از خانواده‌های موجود در ویندوز انتخاب می‌شوند.
 
 ## داده‌های نمونه
 
