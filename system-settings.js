@@ -375,7 +375,7 @@ function downloadAppFile(filename, content, mimeType) {
       if(edit){editCatalogItem(edit.dataset.editCode);return;}
       const del=event.target.closest("[data-delete-code]");
       if(del){
-        if(!window.confirm("قلم "+del.dataset.deleteCode+" از فهرست نمونه حذف شود؟"))return;
+        if(!window.confirm("قلم "+del.dataset.deleteCode+" از فهرست کالا حذف شود؟"))return;
         database.items=database.items.filter(function(item){return item.code!==del.dataset.deleteCode;});
         saveAppDatabase(database);renderCatalog();renderSettingsPanels();showAppNotice("قلم حذف شد","کالا از داده‌های محلی مرورگر حذف شد.");return;
       }
@@ -440,7 +440,7 @@ function downloadAppFile(filename, content, mimeType) {
         downloadAppFile("malzomat-catalog.csv",csv,"text/csv;charset=utf-8");showAppNotice("خروجی کاتالوگ آماده شد",appFaNumber(filteredItems.length)+" قلم کالا در CSV صادر شد.");
       }
       else if(text.includes("ذخیره تغییرات پیکربندی")){saveAppDatabase(database);showAppNotice("تنظیمات ذخیره شد","داده‌های قابل تغییر در حافظه محلی مرورگر نگهداری شدند.");}
-      else if(text.includes("بروزرسانی رجیستر")){renderCatalog();showAppNotice("رجیستر به‌روزرسانی شد",appFaNumber(database.items.length)+" قلم از پایگاه نمونه بارگذاری شد.");}
+      else if(text.includes("بروزرسانی رجیستر")){renderCatalog();showAppNotice("رجیستر به‌روزرسانی شد",appFaNumber(database.items.length)+" قلم از پایگاه داده بارگذاری شد.");}
       else if(text.includes("تعریف گروه جدید"))addCategory();
       else if(text.includes("چاپ"))printBarcodeLabel();
     });
