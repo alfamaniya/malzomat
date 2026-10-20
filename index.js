@@ -8,7 +8,7 @@ async function loadAppDatabase() {
   if (cachedText) {
     try {
       const cached = JSON.parse(cachedText);
-      if (cached && cached.meta && cached.meta.schemaVersion === base.meta.schemaVersion) {
+      if (cached && cached.meta && cached.meta.sampleData !== true && cached.meta.schemaVersion === base.meta.schemaVersion) {
         window.appDatabase = Object.assign({}, base, cached);
         return window.appDatabase;
       }
