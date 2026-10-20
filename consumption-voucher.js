@@ -263,9 +263,10 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
         const text = button.innerText.replace(/\s+/g, " ").trim();
         if (text.includes("کپی شماره")) {
           const node = Array.from(document.querySelectorAll(".dir-ltr")).find(function (element) {
-            return /^HW-/.test(element.textContent.trim()) && element.textContent.trim().includes("1403-9042");
+            return /^HW-/.test(element.textContent.trim()) && element.textContent.trim() !== "—";
           });
-          const code = node ? node.textContent.trim() : "HW-1403-9042";
+          const code = node ? node.textContent.trim() : "";
+          if (!code) { showAppNotice("شماره حواله", "هنوز شماره حواله‌ای ثبت نشده است.", "error"); return; }
           if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(function () { showAppNotice("شماره حواله کپی شد", code); }).catch(function () { showAppNotice("شماره حواله", code); });
           else showAppNotice("شماره حواله", code);
         } else if (text.includes("مشاهده و رهگیری")) {
