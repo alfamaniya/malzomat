@@ -95,7 +95,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
     gatePassNo: options.gatePassNo || "", itemId: item.id, itemCode: item.code, itemName: item.name,
     category: item.category, unit: item.unit, quantity: Number(quantity || 0), unitPrice: Number(item.unitPrice || 0),
     destination: destination || "انبار مرکزی قطعات و ملزومات", warehouse: item.location || "انبار مرکزی قطعات و ملزومات",
-    operator: (database.users && database.users[0] && database.users[0].name) || "کاربر نمونه",
+    operator: (database.users && database.users[0] && database.users[0].name) || "—",
     status: options.status || (type === "gatePass" ? "completed" : "approved"), shift: "shift1", note: options.note || ""
   };
   database.transactions = database.transactions || []; database.transactions.push(transaction); return transaction;
@@ -212,12 +212,12 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
         "<td class=\"py-space-md px-space-md text-center " + qtyColor + " font-bold\">" + appFaNumber(transaction.quantity) + "</td>" +
         "<td class=\"py-space-md px-space-md\">" + appEscape(transaction.destination) + "</td>" +
         "<td class=\"py-space-md px-space-md text-center\"><span class=\"rounded-full px-2 py-1 bg-surface-container text-label-sm\">" + appEscape(statusLabel(transaction.status)) + "</span></td>" +
-        "<td class=\"py-space-md px-space-md\">" + appEscape(transaction.operator || "کاربر نمونه") + "</td></tr>";
+        "<td class=\"py-space-md px-space-md\">" + appEscape(transaction.operator || "—") + "</td></tr>";
     }).join("") || "<tr><td colspan=\"12\" class=\"p-8 text-center text-on-surface-variant\">برای فیلترهای انتخاب‌شده موردی پیدا نشد.</td></tr>";
     ensureSummary(); ensurePager();
     if (summary) {
       const units = filteredRows.reduce(function (sum, row) { return sum + Number(row.quantity || 0); }, 0);
-      summary.textContent = "تعداد اسناد مطابق فیلتر: " + appFaNumber(filteredRows.length) + " | جمع تعداد ثبت‌شده: " + appFaNumber(units) + " | منبع: داده نمونه ملزومات";
+      summary.textContent = "تعداد اسناد مطابق فیلتر: " + appFaNumber(filteredRows.length) + " | جمع تعداد ثبت‌شده: " + appFaNumber(units) + " | منبع: پایگاه داده ملزومات";
     }
     if (pager) {
       const pages = Math.max(1,Math.ceil(filteredRows.length/pageSize));
@@ -288,7 +288,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
       if (typeFilter) typeFilter.value="all";
       if (unitFilter) unitFilter.selectedIndex=0;
       activeView="all"; currentPage=1; applyFilters();
-      showAppNotice("فیلترها پاک شدند","گزارش با همه اسناد نمونه بازسازی شد.");
+      showAppNotice("فیلترها پاک شدند","گزارش با همه اسناد موجود بازسازی شد.");
     });
     if (excelButton) excelButton.addEventListener("click",exportCsv);
     if (pdfButton) pdfButton.addEventListener("click",function () { window.print(); });
@@ -296,7 +296,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
     document.addEventListener("click",function (event) {
       const printButton=event.target.closest("button");
       if(printButton&&printButton.innerText.includes("چاپ")){window.print();return;}
-      if(printButton&&printButton.innerText.includes("notifications")){showAppNotice("اعلان‌های نمونه","در این نسخه اعلان‌های سرور واقعی متصل نیستند.");return;}
+      if(printButton&&printButton.innerText.includes("notifications")){showAppNotice("اعلان‌ها","اعلان‌های سرور واقعی متصل نیستند.");return;}
       const pageButton=event.target.closest("[data-report-page]");
       if (pageButton && !pageButton.disabled) { currentPage=Number(pageButton.dataset.reportPage)||1; renderTable(); }
     });
