@@ -10,3 +10,23 @@
 .app-toast strong{display:block;font-size:.95rem;margin-bottom:3px}.app-toast p{margin:0;font-size:.85rem;color:#eaf1ff}
 @media(max-width:900px){.profile-data-overview{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.profile-data-overview{grid-template-columns:1fr}.profile-data-stat{padding:6px}}
+
+
+/* Styles moved out of index.html to keep page-specific CSS external. */
+@layer base {
+      html, body { margin: 0; padding: 0; min-height: 100%; }
+      body { overscroll-behavior: none; font-family: 'Noto Sans', 'Vazirmatn', sans-serif; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+
+@media (max-width: 768px) {
+      aside { position: static !important; width: 100% !important; height: auto !important; }
+      aside > div:first-child > div:last-child { padding: 12px; }
+      aside nav { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      main.mr-72 { margin-right: 0 !important; padding: 20px 14px !important; }
+    }
+    @media (min-width: 769px) {
+      main.mr-72 { margin-right: 18rem; }
+    }
