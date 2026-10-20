@@ -119,9 +119,9 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
   const excelButton = document.getElementById("btnExcel");
   const pdfButton = document.getElementById("btnPdf");
   const inputs = Array.from(document.querySelectorAll("input[type=text]"));
-  const dateInputs = inputs.filter(function (input) { return (input.placeholder || "").includes("۱۴۰۳/۰۱/۰۱") || (input.placeholder || "").includes("1403/01/01"); }).slice(0,2);
-  const documentFilter = inputs.find(function (input) { return (input.placeholder || "").includes("HW-1403-9042"); });
-  const gateFilter = inputs.find(function (input) { return (input.placeholder || "").includes("GP-1403-4412"); });
+  const dateInputs = [document.getElementById("filterStartDate"), document.getElementById("filterEndDate")].filter(Boolean);
+  const documentFilter = document.getElementById("filterDocumentNo");
+  const gateFilter = document.getElementById("filterGateNo");
   const selects = Array.from(document.querySelectorAll("select"));
   const shiftFilter = selects.find(function (select) { return Array.from(select.options).some(function (option) { return option.value === "shift1"; }); });
   const unitFilter = selects.find(function (select) { return Array.from(select.options).some(function (option) { return (option.textContent || "").includes("تمام واحدهای شمارش"); }); });
