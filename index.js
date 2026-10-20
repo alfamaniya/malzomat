@@ -136,7 +136,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
     unitPrice: Number(item.unitPrice || 0),
     destination: destination || "انبار مرکزی قطعات و ملزومات",
     warehouse: item.location || "انبار مرکزی قطعات و ملزومات",
-    operator: (database.users && database.users[0] && database.users[0].name) || "کاربر نمونه",
+    operator: (database.users && database.users[0] && database.users[0].name) || "—",
     status: options.status || (type === "gatePass" ? "completed" : "approved"),
     shift: "shift1",
     note: options.note || ""
@@ -160,15 +160,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     const lowStock = database.items.filter(function (item) { return item.stock <= item.minStock; }).length;
     const overview = document.createElement("section");
     overview.className = "profile-data-overview";
-    overview.setAttribute("aria-label", "خلاصه پایگاه داده نمونه");
+    overview.setAttribute("aria-label", "خلاصه پایگاه داده");
     overview.innerHTML =
-      "<div class=\"profile-data-stat\"><span class=\"stat-icon material-symbols-outlined\">inventory_2</span><div><strong>" + appFaNumber(database.items.length) + "</strong><span>قلم کالا در فهرست نمونه</span></div></div>" +
+      "<div class=\"profile-data-stat\"><span class=\"stat-icon material-symbols-outlined\">inventory_2</span><div><strong>" + appFaNumber(database.items.length) + "</strong><span>قلم کالا</span></div></div>" +
       "<div class=\"profile-data-stat\"><span class=\"stat-icon material-symbols-outlined\">category</span><div><strong>" + appFaNumber(database.categories.length) + "</strong><span>گروه کالایی</span></div></div>" +
       "<div class=\"profile-data-stat\"><span class=\"stat-icon material-symbols-outlined\">warning</span><div><strong>" + appFaNumber(lowStock) + "</strong><span>قلم زیر نقطه سفارش</span></div></div>" +
-      "<div class=\"profile-data-stat\"><span class=\"stat-icon material-symbols-outlined\">sync_alt</span><div><strong>" + appFaNumber(database.transactions.length) + "</strong><span>سابقه نمونه گردش کالا</span><div class=\"profile-db-status\">فایل JSON بارگذاری شد</div></div></div>";
+      "<div class=\"profile-data-stat\"><span class=\"stat-icon material-symbols-outlined\">sync_alt</span><div><strong>" + appFaNumber(database.transactions.length) + "</strong><span>سابقه گردش کالا</span><div class=\"profile-db-status\">فایل JSON بارگذاری شد</div></div></div>";
     header.insertAdjacentElement("afterend", overview);
     overview.addEventListener("dblclick", function () {
-      showAppNotice("پایگاه داده نمونه", "اطلاعات اولیه از database.json خوانده می‌شود؛ تغییرات آزمایشی در همین مرورگر ذخیره می‌شوند.");
+      showAppNotice("پایگاه داده", "اطلاعات از database.json خوانده می‌شود؛ تغییرات محلی در همین مرورگر ذخیره می‌شوند.");
     });
   } catch (error) {
     console.error(error);
