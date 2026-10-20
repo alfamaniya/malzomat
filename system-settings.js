@@ -436,7 +436,7 @@ function downloadAppFile(filename, content, mimeType) {
       } else if(text.includes("بک‌آپ")||text.includes("نسخه پشتیبان"))triggerDbBackup();
       else if(text==="download"||text.includes("download")||text.includes("دانلود")){
         const rows=[["کد کالا","نام کالا","گروه","واحد","موجودی","حداقل موجودی","محل نگهداری"]].concat(filteredItems.map(function(item){return [item.code,item.name,item.category,item.unit,item.stock,item.minStock,item.location];}));
-        const csv="\\uFEFF"+rows.map(function(row){return row.map(function(value){return "\\\""+String(value==null?"":value).replace(/\\\"/g,"\\\"\\\"")+"\\\"";}).join(",");}).join("\\r\\n");
+        const csv=String.fromCharCode(65279)+rows.map(function(row){return row.map(function(value){return '"' + String(value==null?"":value).replaceAll('"','""') + '"';}).join(",");}).join("\r\n");
         downloadAppFile("malzomat-catalog.csv",csv,"text/csv;charset=utf-8");showAppNotice("خروجی کاتالوگ آماده شد",appFaNumber(filteredItems.length)+" قلم کالا در CSV صادر شد.");
       }
       else if(text.includes("ذخیره تغییرات پیکربندی")){saveAppDatabase(database);showAppNotice("تنظیمات ذخیره شد","داده‌های قابل تغییر در حافظه محلی مرورگر نگهداری شدند.");}
