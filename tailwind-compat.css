@@ -498,3 +498,5 @@ button,input,select,textarea{font:inherit}
   font-size:var(--icon-fallback-size,1rem);line-height:1;font-weight:700;
 }
 
+
+.mr-auto{margin-right:auto}.ml-auto{margin-left:auto}
