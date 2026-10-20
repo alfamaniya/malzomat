@@ -360,6 +360,19 @@ function appCategoryOptions(database) {
         });
       } else if (text.includes("چاپ")) {
         window.print();
+      } else if (button.title.includes("دریافت فایل اکسل کاردکس")) {
+        const rows = [["کد کالا","نام کالا","گروه","واحد","موجودی","رزرو","موجودی آزاد","حداقل موجودی","محل نگهداری"]].concat(filteredProducts.map(function (item) {
+          return [item.code,item.name,item.category,item.unit,item.stock,item.reserved || 0,Math.max(0,item.stock-(item.reserved || 0)),item.minStock,item.location];
+        }));
+        const csv = "\uFEFF" + rows.map(function (row) {
+          return row.map(function (value) { return "\"" + String(value == null ? "" : value).replace(/"/g, "\"\"") + "\""; }).join(",");
+        }).join("\r\n");
+        downloadAppFile("malzomat-cardex.csv", csv, "text/csv;charset=utf-8");
+        showAppNotice("خروجی کاردکس آماده شد", appFaNumber(filteredProducts.length) + " قلم در فایل CSV دانلود شد.");
+      } else if (button.title.includes("فیلترهای پیشرفته انبارگردانی") || text === "tune") {
+        if (categoryFilter) categoryFilter.focus();
+        if (categoryFilter) categoryFilter.scrollIntoView({ behavior: "smooth", block: "center" });
+        showAppNotice("فیلترهای پیشرفته", "گروه و وضعیت موجودی را از فهرست‌های کنار جست‌وجو انتخاب کنید.");
       } else if (text === "download" || text.includes("دانلود")) {
         downloadAppFile("malzomat-inventory-export.json", JSON.stringify(database, null, 2), "application/json;charset=utf-8");
         showAppNotice("خروجی آماده شد", "فایل JSON داده‌های جاری دانلود شد.");
