@@ -18,3 +18,5 @@
 
 /* Styles moved out of system-settings.html */
 @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;font-family:'Noto Sans','Vazirmatn',sans-serif;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+
+.catalog-compact th,.catalog-compact td{padding:4px 6px!important;font-size:.78rem}
