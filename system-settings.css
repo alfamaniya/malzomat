@@ -1,4 +1,5 @@
 /* مدیریت داده‌های پایه و تنظیمات */
+.report-app-pager{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#fff;border-top:1px solid #dce5f5;padding:12px 16px;font-size:.85rem}.report-app-pager .pager-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.report-app-pager button{border:1px solid #c5c5d3;border-radius:8px;background:#f8f9ff;padding:6px 12px;color:#00236f;cursor:pointer}.report-app-pager button[aria-current=page]{background:#00236f;color:#fff}.report-app-pager button:disabled{opacity:.4;cursor:not-allowed}
 .settings-dynamic-panel{display:flex;flex-direction:column;gap:16px;padding:20px;background:#fff;border:1px solid #c5c5d3;border-radius:14px}
 .settings-dynamic-panel h2{font-size:1.1rem;font-weight:700;color:#00236f;margin:0}
 .settings-dynamic-panel p{font-size:.88rem;color:#444651;line-height:1.8;margin:0}
