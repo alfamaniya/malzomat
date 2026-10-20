@@ -225,6 +225,14 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
         if (item) appAddTransaction(database, item, "gatePass", entry.quantity, "توقیف گیت", {gatePassNo:"GP-HOLD-" + Date.now(),status:"held",note:reason});
         saveAppDatabase(database); activeLogFilter = "held"; renderLog();
         showAppNotice("مغایرت ثبت شد", "گزارش توقف بار به سوابق نمونه اضافه شد.", "error");
+      } else if (text.includes("filter_list")) {
+        const query = window.prompt("کد یا نام کالا را برای فیلتر وارد کنید؛ برای حذف فیلتر کادر را خالی بگذارید:");
+        if (query === null) return;
+        const normalized = query.trim().toLocaleLowerCase("fa");
+        itemBody.querySelectorAll("tr").forEach(function (row) {
+          row.style.display = !normalized || row.innerText.toLocaleLowerCase("fa").includes(normalized) ? "" : "none";
+        });
+        showAppNotice("فیلتر اقلام گیت", normalized ? "فهرست بر اساس عبارت جست‌وجو محدود شد." : "فیلتر اقلام پاک شد.");
       } else if (text.includes("چاپ")) {
         window.print();
       }
