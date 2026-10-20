@@ -72,53 +72,181 @@
       </div>
     </aside>
 
-  <main class="mr-72 min-h-screen p-space-xl">
-    <header class="mb-space-xl">
-      <div class="flex items-center gap-space-sm text-label-md text-on-surface-variant mb-space-sm">
-        <span class="material-symbols-outlined text-[20px]">home</span><span>صفحه اصلی</span>
+  
+  <main class="mr-72 min-h-screen p-space-xl space-y-space-xl">
+    <header class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md">
+      <div>
+        <div class="flex items-center gap-space-xs text-label-md text-on-surface-variant mb-space-sm">
+          <span class="material-symbols-outlined text-[20px]">home</span>
+          <span>صفحه اصلی</span>
+          <span class="material-symbols-outlined text-[16px]">chevron_left</span>
+          <span>پروفایل شرکتی</span>
+        </div>
+        <h1 class="font-headline-xl text-headline-xl font-bold text-on-surface mb-space-xs">پروفایل شرکتی</h1>
+        <p class="text-body-md text-on-surface-variant">اطلاعات حساب کاربری و شرکت متصل به حساب شما در سامانه ملزومات</p>
       </div>
-      <h1 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-space-sm">به سامانه ملزومات خوش آمدید</h1>
-      <p class="text-body-lg text-on-surface-variant">برای ورود به بخش موردنظر، یکی از ماژول‌های زیر را انتخاب کنید.</p>
+      <div class="flex flex-wrap items-center gap-space-sm">
+        <span class="inline-flex items-center gap-space-xs rounded-full bg-tertiary-fixed/30 text-tertiary px-space-md py-space-sm text-label-md">
+          <span class="material-symbols-outlined text-[18px]">verified_user</span>
+          حساب کاربری فعال
+        </span>
+        <a href="system-settings.html" class="inline-flex items-center gap-space-xs rounded-lg bg-primary text-on-primary px-space-md py-space-sm no-underline hover:opacity-90 transition-opacity">
+          <span class="material-symbols-outlined text-[18px]">settings</span>
+          <span class="text-body-md font-semibold">تنظیمات سامانه</span>
+        </a>
+      </div>
     </header>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md" aria-label="ماژول‌های سامانه">
-      <a href="inventory-dashboard.html" class="block rounded-xl bg-surface-container-lowest p-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] border border-outline-variant hover:shadow-md transition-all no-underline text-on-surface">
-        <div class="flex items-center justify-between mb-space-lg">
-          <span class="material-symbols-outlined text-primary text-3xl">inventory_2</span><span class="material-symbols-outlined text-outline">arrow_back</span>
+    <section class="grid grid-cols-1 xl:grid-cols-5 gap-space-md" aria-label="پروفایل کاربر و شرکت">
+      <article class="xl:col-span-3 rounded-2xl bg-surface-container-lowest border border-outline-variant p-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div class="flex items-center justify-between gap-space-sm mb-space-lg">
+          <div class="flex items-center gap-space-sm text-primary">
+            <span class="material-symbols-outlined text-[22px]">account_circle</span>
+            <h2 class="font-headline-md text-headline-md font-bold">اطلاعات کاربر واردشده</h2>
+          </div>
+          <span class="text-label-sm text-on-surface-variant bg-surface-container-low rounded-full px-space-sm py-space-xs">پروفایل کاربری</span>
         </div>
-        <h2 class="font-headline-md text-headline-md font-bold mb-space-sm">داشبورد و کنترل موجودی</h2>
-        <p class="text-body-md text-on-surface-variant leading-relaxed">نمای کلی موجودی کالاها، وضعیت انبار و کاردکس گردش اقلام.</p>
-      </a>
-      <a href="consumption-voucher.html" class="block rounded-xl bg-surface-container-lowest p-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] border border-outline-variant hover:shadow-md transition-all no-underline text-on-surface">
-        <div class="flex items-center justify-between mb-space-lg">
-          <span class="material-symbols-outlined text-primary text-3xl">assignment</span><span class="material-symbols-outlined text-outline">arrow_back</span>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-space-lg">
+          <div class="w-20 h-20 shrink-0 rounded-2xl bg-primary text-on-primary flex items-center justify-center shadow-sm">
+            <span class="font-headline-xl text-headline-xl font-bold">ع‌رض</span>
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="text-label-sm text-on-surface-variant mb-space-xs">خوش آمدید</p>
+            <h3 class="font-headline-xl text-headline-xl font-bold text-on-surface mb-space-xs">مهندس علیرضا رضایی</h3>
+            <p class="text-body-md text-on-surface-variant mb-space-md">مدیر تدارکات و لجستیک</p>
+            <div class="flex flex-wrap items-center gap-space-sm">
+              <span class="inline-flex items-center gap-space-xs rounded-lg bg-surface-container px-space-sm py-space-xs text-label-md text-on-surface">
+                <span class="material-symbols-outlined text-[17px] text-primary">badge</span>
+                کاربر سازمانی
+              </span>
+              <span class="inline-flex items-center gap-space-xs rounded-lg bg-surface-container px-space-sm py-space-xs text-label-md text-on-surface">
+                <span class="material-symbols-outlined text-[17px] text-primary">corporate_fare</span>
+                تدارکات و لجستیک
+              </span>
+            </div>
+          </div>
         </div>
-        <h2 class="font-headline-md text-headline-md font-bold mb-space-sm">حواله مصرف</h2>
-        <p class="text-body-md text-on-surface-variant leading-relaxed">مشاهده و پیگیری حواله‌های مصرف و وضعیت تأیید آن‌ها.</p>
-      </a>
-      <a href="dispatch-security-pass.html" class="block rounded-xl bg-surface-container-lowest p-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] border border-outline-variant hover:shadow-md transition-all no-underline text-on-surface">
-        <div class="flex items-center justify-between mb-space-lg">
-          <span class="material-symbols-outlined text-primary text-3xl">local_shipping</span><span class="material-symbols-outlined text-outline">arrow_back</span>
+        <div class="mt-space-xl pt-space-lg border-t border-outline-variant flex flex-col sm:flex-row sm:items-center sm:justify-between gap-space-sm">
+          <p class="text-body-sm text-on-surface-variant">این صفحه برای نمایش اطلاعات کاربر و مشخصات شرکت متصل به حساب کاری شماست.</p>
+          <a href="#modules" class="inline-flex shrink-0 items-center gap-space-xs text-primary font-semibold text-body-md no-underline hover:underline">
+            رفتن به بخش‌های سامانه
+            <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+          </a>
         </div>
-        <h2 class="font-headline-md text-headline-md font-bold mb-space-sm">خروج کالا و برگه حراست</h2>
-        <p class="text-body-md text-on-surface-variant leading-relaxed">دسترسی به اطلاعات خروج کالا و کنترل برگه‌های حراست.</p>
-      </a>
-      <a href="warehouse-reports.html" class="block rounded-xl bg-surface-container-lowest p-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] border border-outline-variant hover:shadow-md transition-all no-underline text-on-surface">
-        <div class="flex items-center justify-between mb-space-lg">
-          <span class="material-symbols-outlined text-primary text-3xl">analytics</span><span class="material-symbols-outlined text-outline">arrow_back</span>
+      </article>
+
+      <article id="company-profile" class="xl:col-span-2 rounded-2xl bg-primary text-on-primary p-space-xl shadow-[0_6px_20px_rgba(0,35,111,0.12)]">
+        <div class="flex items-center gap-space-sm mb-space-lg">
+          <span class="material-symbols-outlined text-[26px]">domain</span>
+          <div>
+            <p class="text-label-sm text-white/75 mb-0.5">پروفایل شرکتی</p>
+            <h2 class="font-headline-md text-headline-md font-bold">مشخصات سازمان</h2>
+          </div>
         </div>
-        <h2 class="font-headline-md text-headline-md font-bold mb-space-sm">گزارش‌های انبار</h2>
-        <p class="text-body-md text-on-surface-variant leading-relaxed">مشاهده گزارش‌های موجودی، گردش کالا و سوابق انبار.</p>
-      </a>
-      <a href="system-settings.html" class="block rounded-xl bg-surface-container-lowest p-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] border border-outline-variant hover:shadow-md transition-all no-underline text-on-surface">
-        <div class="flex items-center justify-between mb-space-lg">
-          <span class="material-symbols-outlined text-primary text-3xl">settings</span><span class="material-symbols-outlined text-outline">arrow_back</span>
+        <div class="w-14 h-14 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center mb-space-md">
+          <span class="material-symbols-outlined text-[32px]">apartment</span>
         </div>
-        <h2 class="font-headline-md text-headline-md font-bold mb-space-sm">تنظیمات و داده‌های پایه</h2>
-        <p class="text-body-md text-on-surface-variant leading-relaxed">دسترسی به کاتالوگ کالا و تنظیمات عمومی سامانه.</p>
-      </a>
+        <h3 class="font-headline-lg text-headline-lg font-bold leading-relaxed mb-space-sm">شرکت بازرگانی قطعات صنعتی پارس</h3>
+        <p class="text-body-md text-white/80 leading-relaxed mb-space-lg">پروفایل سازمانی برای مدیریت موجودی، گردش کالا و فرایندهای تدارکات شرکت</p>
+        <div class="space-y-space-sm">
+          <div class="flex items-start gap-space-sm rounded-xl bg-white/10 p-space-md">
+            <span class="material-symbols-outlined text-[20px] mt-0.5">warehouse</span>
+            <div>
+              <p class="text-label-sm text-white/70 mb-0.5">انبار فعال</p>
+              <p class="text-body-md font-semibold">انبار مرکزی قطعات و مواد اولیه</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-space-sm rounded-xl bg-white/10 p-space-md">
+            <span class="material-symbols-outlined text-[20px] mt-0.5">work</span>
+            <div>
+              <p class="text-label-sm text-white/70 mb-0.5">سمت مرتبط با شرکت</p>
+              <p class="text-body-md font-semibold">مدیر تدارکات و لجستیک</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section aria-label="خلاصه پروفایل" class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+      <article class="rounded-xl bg-surface-container-lowest border border-outline-variant p-space-lg flex items-start gap-space-md">
+        <span class="material-symbols-outlined text-primary bg-surface-container rounded-xl p-space-sm text-[24px]">person_check</span>
+        <div>
+          <p class="text-label-md text-on-surface-variant mb-space-xs">حساب جاری</p>
+          <p class="font-headline-md text-headline-md font-bold text-on-surface">مهندس علیرضا رضایی</p>
+          <p class="text-body-sm text-on-surface-variant mt-space-xs">پروفایل کاربر سازمانی</p>
+        </div>
+      </article>
+      <article class="rounded-xl bg-surface-container-lowest border border-outline-variant p-space-lg flex items-start gap-space-md">
+        <span class="material-symbols-outlined text-primary bg-surface-container rounded-xl p-space-sm text-[24px]">corporate_fare</span>
+        <div>
+          <p class="text-label-md text-on-surface-variant mb-space-xs">شرکت متصل</p>
+          <p class="font-headline-md text-headline-md font-bold text-on-surface">قطعات صنعتی پارس</p>
+          <p class="text-body-sm text-on-surface-variant mt-space-xs">شرکت بازرگانی قطعات صنعتی پارس</p>
+        </div>
+      </article>
+      <article class="rounded-xl bg-surface-container-lowest border border-outline-variant p-space-lg flex items-start gap-space-md">
+        <span class="material-symbols-outlined text-primary bg-surface-container rounded-xl p-space-sm text-[24px]">inventory_2</span>
+        <div>
+          <p class="text-label-md text-on-surface-variant mb-space-xs">انبار منتخب</p>
+          <p class="font-headline-md text-headline-md font-bold text-on-surface">انبار مرکزی</p>
+          <p class="text-body-sm text-on-surface-variant mt-space-xs">قطعات و مواد اولیه</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="modules" aria-label="دسترسی به بخش‌های سامانه">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-space-sm mb-space-md">
+        <div>
+          <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-space-xs">بخش‌های در دسترس شما</h2>
+          <p class="text-body-md text-on-surface-variant">برای ادامه کار، یکی از بخش‌های سامانه را انتخاب کنید.</p>
+        </div>
+        <span class="text-label-md text-on-surface-variant">۵ بخش عملیاتی</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md">
+        <a href="inventory-dashboard.html" class="group block rounded-xl bg-surface-container-lowest p-space-lg border border-outline-variant hover:border-primary hover:shadow-md transition-all no-underline text-on-surface">
+          <div class="flex items-center justify-between mb-space-lg">
+            <span class="material-symbols-outlined text-primary text-3xl">inventory_2</span>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_back</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md font-bold mb-space-sm">داشبورد و کنترل موجودی</h3>
+          <p class="text-body-md text-on-surface-variant leading-relaxed">نمای کلی موجودی کالاها، وضعیت انبار و کاردکس گردش اقلام.</p>
+        </a>
+        <a href="consumption-voucher.html" class="group block rounded-xl bg-surface-container-lowest p-space-lg border border-outline-variant hover:border-primary hover:shadow-md transition-all no-underline text-on-surface">
+          <div class="flex items-center justify-between mb-space-lg">
+            <span class="material-symbols-outlined text-primary text-3xl">assignment_turned_in</span>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_back</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md font-bold mb-space-sm">حواله مصرف</h3>
+          <p class="text-body-md text-on-surface-variant leading-relaxed">مشاهده و پیگیری حواله‌های مصرف و وضعیت تأیید آن‌ها.</p>
+        </a>
+        <a href="dispatch-security-pass.html" class="group block rounded-xl bg-surface-container-lowest p-space-lg border border-outline-variant hover:border-primary hover:shadow-md transition-all no-underline text-on-surface">
+          <div class="flex items-center justify-between mb-space-lg">
+            <span class="material-symbols-outlined text-primary text-3xl">local_shipping</span>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_back</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md font-bold mb-space-sm">خروج کالا و برگه حراست</h3>
+          <p class="text-body-md text-on-surface-variant leading-relaxed">دسترسی به اطلاعات خروج کالا و کنترل برگه‌های حراست.</p>
+        </a>
+        <a href="warehouse-reports.html" class="group block rounded-xl bg-surface-container-lowest p-space-lg border border-outline-variant hover:border-primary hover:shadow-md transition-all no-underline text-on-surface">
+          <div class="flex items-center justify-between mb-space-lg">
+            <span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_back</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md font-bold mb-space-sm">گزارش‌های انبار</h3>
+          <p class="text-body-md text-on-surface-variant leading-relaxed">مشاهده گزارش‌های موجودی، گردش کالا و سوابق انبار.</p>
+        </a>
+        <a href="system-settings.html" class="group block rounded-xl bg-surface-container-lowest p-space-lg border border-outline-variant hover:border-primary hover:shadow-md transition-all no-underline text-on-surface">
+          <div class="flex items-center justify-between mb-space-lg">
+            <span class="material-symbols-outlined text-primary text-3xl">settings</span>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_back</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md font-bold mb-space-sm">تنظیمات و داده‌های پایه</h3>
+          <p class="text-body-md text-on-surface-variant leading-relaxed">دسترسی به داده‌های پایه و تنظیمات عمومی سامانه.</p>
+        </a>
+      </div>
     </section>
   </main>
+  
   <style>
     @media (max-width: 768px) {
       aside { position: static !important; width: 100% !important; height: auto !important; }
@@ -126,6 +254,8 @@
       aside nav { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); }
       main.mr-72 { margin-right: 0 !important; padding: 20px 14px !important; }
     }
-  </style>
-</body>
+    @media (min-width: 769px) {
+      main.mr-72 { margin-right: 18rem; }
+    }
+  </style></body>
 </html>
