@@ -225,6 +225,8 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
         if (item) appAddTransaction(database, item, "gatePass", entry.quantity, "توقیف گیت", {gatePassNo:"GP-HOLD-" + Date.now(),status:"held",note:reason});
         saveAppDatabase(database); activeLogFilter = "held"; renderLog();
         showAppNotice("مغایرت ثبت شد", "گزارش توقف بار به سوابق نمونه اضافه شد.", "error");
+      } else if (text.includes("notifications")) {
+        showAppNotice("اعلان‌های نمونه", "اعلان واقعی سرور در این نسخه متصل نیست.");
       } else if (text.includes("filter_list")) {
         const query = window.prompt("کد یا نام کالا را برای فیلتر وارد کنید؛ برای حذف فیلتر کادر را خالی بگذارید:");
         if (query === null) return;
