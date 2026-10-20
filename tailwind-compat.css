@@ -485,3 +485,16 @@ button,input,select,textarea{font:inherit}
 .-right-4{right:-1rem}.-top-12{top:-3rem}.-top-4{top:-1rem}
 @media(min-width:768px){.md\:w-80{width:20rem}}
 
+
+
+/* Symbol-font fallback for computers running without Internet access. */
+.icons-fallback .material-symbols-outlined[data-icon-glyph]{
+  font-size:0!important;font-family:Arial,"Segoe UI Symbol",sans-serif!important;
+  font-feature-settings:normal;display:inline-flex;align-items:center;justify-content:center;
+  vertical-align:middle;min-width:1em;line-height:1;
+}
+.icons-fallback .material-symbols-outlined[data-icon-glyph]::after{
+  content:attr(data-icon-glyph);font-family:Arial,"Segoe UI Symbol","Apple Color Emoji",sans-serif;
+  font-size:var(--icon-fallback-size,1rem);line-height:1;font-weight:700;
+}
+
