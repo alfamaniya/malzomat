@@ -1,0 +1,12 @@
+/* صفحه اصلی و پروفایل شرکتی */
+.profile-data-overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 24px;padding:16px;background:#fff;border:1px solid #c5c5d3;border-radius:16px;box-shadow:0 2px 10px rgba(0,35,111,.04)}
+.profile-data-stat{display:flex;align-items:center;gap:12px;min-width:0;padding:8px}
+.profile-data-stat .stat-icon{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:12px;background:#eff4ff;color:#00236f}
+.profile-data-stat strong{display:block;font-size:1.25rem;color:#0b1c30;line-height:1.6}
+.profile-data-stat span{font-size:.8rem;color:#444651}
+.profile-db-status{display:flex;align-items:center;gap:8px;color:#006b46;font-size:.8rem;margin-top:8px}
+.profile-db-status::before{content:"";width:8px;height:8px;background:#12a36c;border-radius:50%}
+.app-toast{position:fixed;z-index:1000;bottom:20px;left:20px;max-width:min(420px,calc(100vw - 40px));padding:14px 18px;background:#0b1c30;color:#fff;border-radius:12px;box-shadow:0 8px 30px #0b1c3033;line-height:1.8}
+.app-toast strong{display:block;font-size:.95rem;margin-bottom:3px}.app-toast p{margin:0;font-size:.85rem;color:#eaf1ff}
+@media(max-width:900px){.profile-data-overview{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.profile-data-overview{grid-template-columns:1fr}.profile-data-stat{padding:6px}}
