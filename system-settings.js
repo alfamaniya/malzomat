@@ -106,12 +106,12 @@ function downloadAppFile(filename, content, mimeType) {
     if(statusFilter)statusFilter.innerHTML="<option value=\"\">همه وضعیت‌ها</option><option value=\"active\">فقط اقلام فعال</option><option value=\"low_stock\">اقلام زیر حداقل موجودی</option><option value=\"out_of_stock\">اقلام بدون موجودی</option><option value=\"blocked\">اقلام غیرفعال</option>";
     if(pageSizeSelect){
       pageSizeSelect.innerHTML="<option value=\"10\">۱۰</option><option value=\"25\" selected>۲۵</option><option value=\"50\">۵۰</option><option value=\"100\">۱۰۰</option>";
-      pageSizeSelect.addEventListener("change",function(){pageSize=Number(pageSizeSelect.value)||25;currentPage=1;renderCatalog();});
+      if(!pageSizeSelect.dataset.settingsBound){pageSizeSelect.addEventListener("change",function(){pageSize=Number(pageSizeSelect.value)||25;currentPage=1;renderCatalog();});pageSizeSelect.dataset.settingsBound="true";}
     }
     searchInput=document.querySelector("#content-tab-coding input[placeholder^=\"جستجوی کد\"]");
-    if(searchInput)searchInput.addEventListener("input",function(){currentPage=1;renderCatalog();});
-    if(categoryFilter)categoryFilter.addEventListener("change",function(){currentPage=1;renderCatalog();});
-    if(statusFilter)statusFilter.addEventListener("change",function(){currentPage=1;renderCatalog();});
+    if(searchInput&&!searchInput.dataset.settingsBound){searchInput.addEventListener("input",function(){currentPage=1;renderCatalog();});searchInput.dataset.settingsBound="true";}
+    if(categoryFilter&&!categoryFilter.dataset.settingsBound){categoryFilter.addEventListener("change",function(){currentPage=1;renderCatalog();});categoryFilter.dataset.settingsBound="true";}
+    if(statusFilter&&!statusFilter.dataset.settingsBound){statusFilter.addEventListener("change",function(){currentPage=1;renderCatalog();});statusFilter.dataset.settingsBound="true";}
   }
 
   function getCatalogItems() {
@@ -396,10 +396,12 @@ function downloadAppFile(filename, content, mimeType) {
         return;
       } else if(button.hasAttribute("data-close-barcode")){closeBarcodeModal();return;}
       else if(button.hasAttribute("data-print-barcode")){window.print();return;}
+      else if(text.includes("view_column")){if(catalogTable)catalogTable.classList.toggle("catalog-compact");showAppNotice("نمایش جدول",catalogTable&&catalogTable.classList.contains("catalog-compact")?"نمایش فشرده فعال شد.":"نمایش استاندارد فعال شد.");return;}
       else if(button.hasAttribute("data-add-category"))addCategory();
       else if(button.hasAttribute("data-add-unit"))addUnit();
       else if(button.hasAttribute("data-add-destination"))addDestination();
       else if(button.hasAttribute("data-add-user"))addUser();
+      else if(text.includes("تعریف مقصد جدید"))addDestination();
       else if(button.hasAttribute("data-rename-category")){
         const cat=database.categories.find(function(c){return c.id===button.dataset.renameCategory;});if(!cat)return;
         openAppDialog("تغییر نام گروه",[{name:"name",label:"نام جدید",type:"text",value:cat.name}],function(v){
@@ -413,8 +415,7 @@ function downloadAppFile(filename, content, mimeType) {
           const old=unit.name;unit.name=v.name;database.items.forEach(function(item){if(item.unit===old)item.unit=v.name;});
           saveAppDatabase(database);setupFormOptions();renderCatalog();renderSettingsPanels();showAppNotice("واحد تغییر کرد","نام واحد در کاتالوگ نیز به‌روزرسانی شد.");
         });
-      } else if(button.hasAttribute("data-add-destination"))addDestination();
-      else if(button.hasAttribute("data-edit-destination")){
+      } else if(button.hasAttribute("data-edit-destination")){
         const d=database.destinations.find(function(entry){return entry.id===button.dataset.editDestination;});if(!d)return;
         openAppDialog("ویرایش مقصد",[{name:"name",label:"عنوان مقصد",type:"text",value:d.name},{name:"manager",label:"مسئول تحویل",type:"text",value:d.manager},{name:"status",label:"وضعیت",type:"select",value:d.status,options:[{value:"active",label:"فعال"},{value:"inactive",label:"غیرفعال"}]}],function(v){Object.assign(d,v);saveAppDatabase(database);renderSettingsPanels();showAppNotice("مقصد ذخیره شد",d.name);});
       } else if(button.hasAttribute("data-delete-destination")){
@@ -432,12 +433,16 @@ function downloadAppFile(filename, content, mimeType) {
         panel.querySelectorAll("[data-numbering]").forEach(function(input){database.settings[input.dataset.numbering]=input.dataset.numbering==="nextSkuNumber"?Number(input.value):input.value.trim();});
         saveAppDatabase(database);showAppNotice("قالب شماره‌گذاری ذخیره شد","قالب سندها و شمارنده کالاها به‌روزرسانی شد.");
       } else if(text.includes("بک‌آپ")||text.includes("نسخه پشتیبان"))triggerDbBackup();
+      else if(text==="download"||text.includes("download")||text.includes("دانلود")){
+        const rows=[["کد کالا","نام کالا","گروه","واحد","موجودی","حداقل موجودی","محل نگهداری"]].concat(filteredItems.map(function(item){return [item.code,item.name,item.category,item.unit,item.stock,item.minStock,item.location];}));
+        const csv="\\uFEFF"+rows.map(function(row){return row.map(function(value){return "\\\""+String(value==null?"":value).replace(/\\\"/g,"\\\"\\\"")+"\\\"";}).join(",");}).join("\\r\\n");
+        downloadAppFile("malzomat-catalog.csv",csv,"text/csv;charset=utf-8");showAppNotice("خروجی کاتالوگ آماده شد",appFaNumber(filteredItems.length)+" قلم کالا در CSV صادر شد.");
+      }
       else if(text.includes("ذخیره تغییرات پیکربندی")){saveAppDatabase(database);showAppNotice("تنظیمات ذخیره شد","داده‌های قابل تغییر در حافظه محلی مرورگر نگهداری شدند.");}
       else if(text.includes("بروزرسانی رجیستر")){renderCatalog();showAppNotice("رجیستر به‌روزرسانی شد",appFaNumber(database.items.length)+" قلم از پایگاه نمونه بارگذاری شد.");}
       else if(text.includes("تعریف گروه جدید"))addCategory();
       else if(text.includes("چاپ"))printBarcodeLabel();
     });
-    if(searchInput)searchInput.addEventListener("input",function(){currentPage=1;renderCatalog();});
     document.addEventListener("change",function(event){
       if(event.target.matches("[data-setting-approval],[data-setting-lowstock]")){
         showAppNotice("تغییر ثبت نشده","برای ذخیره این تنظیمات، دکمه «ذخیره قوانین» را بزنید.");
