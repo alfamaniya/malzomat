@@ -136,7 +136,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
     unitPrice: Number(item.unitPrice || 0),
     destination: destination || "انبار مرکزی قطعات و ملزومات",
     warehouse: item.location || "انبار مرکزی قطعات و ملزومات",
-    operator: (database.users && database.users[0] && database.users[0].name) || "کاربر نمونه",
+    operator: (database.users && database.users[0] && database.users[0].name) || "—",
     status: options.status || (type === "gatePass" ? "completed" : "approved"),
     shift: "shift1",
     note: options.note || ""
@@ -251,7 +251,7 @@ function appCategoryOptions(database) {
         "<td class=\"py-space-sm px-space-md text-center text-tertiary-container\">" + (inbound ? appFaNumber(transaction.quantity) : "—") + "</td>" +
         "<td class=\"py-space-sm px-space-md text-center text-error\">" + (outbound ? appFaNumber(transaction.quantity) : "—") + "</td>" +
         "<td class=\"py-space-sm px-space-md text-center font-bold\">" + appFaNumber(transaction.quantity) + "</td>" +
-        "<td class=\"py-space-sm px-space-md\">" + appEscape(transaction.operator || "کاربر نمونه") + "</td>" +
+        "<td class=\"py-space-sm px-space-md\">" + appEscape(transaction.operator || "—") + "</td>" +
         "<td class=\"py-space-sm px-space-md text-center\"><span class=\"material-symbols-outlined text-[18px] text-primary\">description</span></td></tr>";
     }).join("");
   }
@@ -324,9 +324,9 @@ function appCategoryOptions(database) {
       if (!button) return;
       const text = button.innerText.replace(/\s+/g, " ").trim();
       if (button.id === "btn-refresh") {
-        loadAppDatabase().then(function (loaded) { database = loaded; renderProducts(); renderTransactions(); showAppNotice("داده‌ها تازه شد", "فهرست کالاها و گردش انبار از فایل نمونه و تغییرات محلی دوباره خوانده شدند."); }).catch(function () { showAppNotice("خطا", "امکان بارگذاری دوباره داده‌ها وجود ندارد.", "error"); });
+        loadAppDatabase().then(function (loaded) { database = loaded; renderProducts(); renderTransactions(); showAppNotice("داده‌ها تازه شد", "فهرست کالاها و گردش انبار دوباره بارگذاری شدند."); }).catch(function () { showAppNotice("خطا", "امکان بارگذاری دوباره داده‌ها وجود ندارد.", "error"); });
       } else if (text.includes("notifications")) {
-        showAppNotice("اعلان‌های نمونه", "در این نسخه اعلان‌ها بر اساس داده‌های نمونه نمایش داده می‌شوند.");
+        showAppNotice("اعلان‌ها", "اعلان سرور به این نسخه متصل نیست.");
       } else if (text.includes("تعریف کالای جدید")) {
         showAddItemDialog();
       } else if (text.includes("بارکدخوان")) {
@@ -392,13 +392,13 @@ function appCategoryOptions(database) {
     });
     renderProducts();
     renderTransactions();
-    showAppNotice("داده‌های کالا آماده است", "۱۰۰ قلم نمونه از database.json بارگذاری شد.");
+    showAppNotice("داده‌های کالا آماده است", "اطلاعات از database.json بارگذاری شد.");
   }
 
   document.addEventListener("DOMContentLoaded", function () {
     loadAppDatabase().then(function (loaded) { database = loaded; init(); }).catch(function (error) {
       console.error(error);
-      showAppNotice("خطا در بارگذاری پایگاه نمونه", "صفحه را از طریق IIS یا یک وب‌سرور محلی اجرا کنید تا database.json قابل خواندن باشد.", "error");
+      showAppNotice("خطا در بارگذاری پایگاه داده", "صفحه را از طریق IIS یا یک وب‌سرور محلی اجرا کنید تا database.json قابل خواندن باشد.", "error");
     });
   });
 })();
