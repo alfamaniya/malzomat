@@ -141,7 +141,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
   function makeRow(row, index) {
     const item = itemFor(row.itemCode);
     if (!item) return "";
-    const overStock = Number(row.quantity) > Number(item.stock);
+    const overStock = row.status !== "تأیید نهایی شد" && Number(row.quantity) > Number(item.stock);
     const statusClass = row.status === "تأیید نهایی شد" ? "voucher-app-state is-approved" : row.status === "عودت داده شد" ? "voucher-app-state is-rejected" : "voucher-app-state";
     return "<tr class=\"item-row hover:bg-surface-container transition-colors\" data-item-code=\"" + appEscape(item.code) + "\">" +
       "<td class=\"py-space-sm px-space-md text-center\">" + appFaNumber(index + 1) + "</td>" +
