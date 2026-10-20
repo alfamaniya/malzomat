@@ -28,6 +28,7 @@ malzomat/
 ├── tailwind-config.js
 ├── icon-fallback.js
 ├── database.json
+├── persian_enterprise_wms_logistics.md
 └── README.md
 ```
 
