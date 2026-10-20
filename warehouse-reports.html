@@ -128,7 +128,7 @@
 </label>
 <div class="relative flex items-center">
 <span class="material-symbols-outlined text-[18px] text-primary absolute right-2.5 pointer-events-none">calendar_month</span>
-<input class="w-full h-9 pr-9 pl-3 rounded-lg bg-surface-container-low text-on-surface font-tabular-data text-tabular-data focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" placeholder="مثال: ۱۴۰۳/۰۱/۰۱" type="text" value="۱۴۰۳/۰۱/۰۱"/>
+<input class="w-full h-9 pr-9 pl-3 rounded-lg bg-surface-container-low text-on-surface font-tabular-data text-tabular-data focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="filterStartDate" placeholder="تاریخ شروع (سال/ماه/روز)" type="text"/>
 </div>
 </div>
 <!-- Shamsi Date: To -->
@@ -139,7 +139,7 @@
 </label>
 <div class="relative flex items-center">
 <span class="material-symbols-outlined text-[18px] text-primary absolute right-2.5 pointer-events-none">calendar_month</span>
-<input class="w-full h-9 pr-9 pl-3 rounded-lg bg-surface-container-low text-on-surface font-tabular-data text-tabular-data focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" placeholder="مثال: ۱۴۰۳/۰۸/۲۸" type="text" value="۱۴۰۳/۰۸/۲۸"/>
+<input class="w-full h-9 pr-9 pl-3 rounded-lg bg-surface-container-low text-on-surface font-tabular-data text-tabular-data focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="filterEndDate" placeholder="تاریخ پایان (سال/ماه/روز)" type="text"/>
 </div>
 </div>
 <!-- Time Window Filter -->
@@ -201,7 +201,7 @@
 <label class="font-label-sm text-label-sm text-on-surface-variant">شماره سند حواله مصرف</label>
 <div class="relative flex items-center">
 <span class="material-symbols-outlined text-[18px] text-outline absolute right-2.5 pointer-events-none">receipt_long</span>
-<input class="w-full h-9 pr-9 pl-3 rounded-lg bg-surface-container-low text-on-surface font-tabular-data text-tabular-data dir-ltr text-left focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" placeholder="مثال: —" type="text"/>
+<input class="w-full h-9 pr-9 pl-3 rounded-lg bg-surface-container-low text-on-surface font-tabular-data text-tabular-data dir-ltr text-left focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="filterDocumentNo" placeholder="شماره سند" type="text"/>
 </div>
 </div>
 <!-- Dispatch Pass Number -->
@@ -209,7 +209,7 @@
 <label class="font-label-sm text-label-sm text-on-surface-variant">شماره برگه خروج / گیت‌پاس</label>
 <div class="relative flex items-center">
 <span class="material-symbols-outlined text-[18px] text-outline absolute right-2.5 pointer-events-none">badge</span>
-<input class="w-full h-9 pr-9 pl-3 rounded-lg bg-surface-container-low text-on-surface font-tabular-data text-tabular-data dir-ltr text-left focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" placeholder="مثال: —" type="text"/>
+<input class="w-full h-9 pr-9 pl-3 rounded-lg bg-surface-container-low text-on-surface font-tabular-data text-tabular-data dir-ltr text-left focus:outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="filterGateNo" placeholder="شماره برگه خروج" type="text"/>
 </div>
 </div>
 <!-- Destination Warehouse / Dispatch Location -->
