@@ -8,3 +8,7 @@
 .voucher-app-state{display:inline-flex;align-items:center;border-radius:999px;padding:3px 9px;font-size:.75rem;background:#eff4ff;color:#00236f}.voucher-app-state.is-approved{background:#d1fae5;color:#047857}.voucher-app-state.is-rejected{background:#ffdad6;color:#93000a}
 @media(max-width:700px){.voucher-app-summary{grid-template-columns:1fr}.app-dialog{padding:16px}}
 @media print{aside,header,button,.app-modal-overlay{display:none!important}main{margin:0!important;padding:0!important}}
+
+
+/* Styles moved out of consumption-voucher.html to keep page-specific CSS external. */
+@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;font-family:'Noto Sans','Vazirmatn',sans-serif;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
