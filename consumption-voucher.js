@@ -95,7 +95,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
     gatePassNo: options.gatePassNo || "", itemId: item.id, itemCode: item.code, itemName: item.name,
     category: item.category, unit: item.unit, quantity: Number(quantity || 0), unitPrice: Number(item.unitPrice || 0),
     destination: destination || "انبار مرکزی قطعات و ملزومات", warehouse: item.location || "انبار مرکزی قطعات و ملزومات",
-    operator: (database.users && database.users[0] && database.users[0].name) || "کاربر نمونه",
+    operator: (database.users && database.users[0] && database.users[0].name) || "—",
     status: options.status || (type === "gatePass" ? "completed" : "approved"), shift: "shift1", note: options.note || ""
   };
   database.transactions = database.transactions || []; database.transactions.push(transaction); return transaction;
@@ -214,7 +214,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
 
   function addVoucherLine(values) {
     const item = itemFor(values.itemCode);
-    if (!item) return showAppNotice("کالا پیدا نشد", "کد کالا در فهرست نمونه موجود نیست.", "error");
+    if (!item) return showAppNotice("کالا پیدا نشد", "کد کالا در پایگاه داده موجود نیست.", "error");
     const quantity = Number(values.quantity || 1);
     if (quantity < 1) return showAppNotice("مقدار نامعتبر است", "مقدار درخواستی باید بزرگ‌تر از صفر باشد.", "error");
     const existing = draft.find(function (row) { return row.itemCode === item.code && row.status !== "تأیید نهایی شد"; });
@@ -238,7 +238,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
     if (unchecked) return showAppNotice("تأیید واحد ناقص است", "تأیید رئیس واحد برای تمام ردیف‌ها الزامی است.", "error");
     const shortage = draft.find(function (row) { const item = itemFor(row.itemCode); return row.status !== "تأیید نهایی شد" && item && Number(row.quantity) > item.stock; });
     if (shortage) return showAppNotice("موجودی کافی نیست", "مقدار درخواستی کالای " + shortage.itemCode + " را کاهش دهید یا موجودی را بررسی کنید.", "error");
-    if (!window.confirm("حواله با داده‌های نمونه ثبت شود و موجودی اقلام در این مرورگر کسر شود؟")) return;
+    if (!window.confirm("حواله ثبت و موجودی اقلام در این مرورگر کسر شود؟")) return;
     const note = (document.getElementById("managerNotes") || {}).value || "";
     draft.forEach(function (row) {
       if (row.status === "تأیید نهایی شد") return;
@@ -250,7 +250,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
       row.status = "تأیید نهایی شد";
     });
     saveAppDatabase(database); storeDraft(); renderDraft();
-    showAppNotice("حواله تأیید شد", "موجودی نمونه در مرورگر به‌روزرسانی و سوابق گردش ثبت شد.");
+    showAppNotice("حواله تأیید شد", "موجودی محلی به‌روزرسانی و سابقه گردش ثبت شد.");
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -270,10 +270,10 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
           else showAppNotice("شماره حواله", code);
         } else if (text.includes("مشاهده و رهگیری")) {
           const row = button.closest("tr");
-          const detail = row ? row.innerText.replace(/\s+/g, " ").trim() : "جزئیات حواله نمونه HW-1403-9042";
+          const detail = row ? row.innerText.replace(/\s+/g, " ").trim() : "جزئیات حواله ثبت نشده است";
           showAppNotice("جزئیات و رهگیری حواله", detail);
         } else if (text.includes("notifications")) {
-          showAppNotice("اعلان‌های نمونه", "در این نسخه داده‌های نمونه نمایش داده می‌شوند؛ اعلان سرور واقعی متصل نیست.");
+          showAppNotice("اعلان‌ها", "اعلان سرور واقعی به این نسخه متصل نیست.");
         }
       });
       if (addButton) addButton.addEventListener("click", showAddDialog);
@@ -314,7 +314,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
       });
     }).catch(function (error) {
       console.error(error);
-      showAppNotice("خطا در بارگذاری پایگاه نمونه", "برای خواندن database.json صفحه را از طریق IIS یا وب‌سرور محلی اجرا کنید.", "error");
+      showAppNotice("خطا در بارگذاری پایگاه داده", "برای خواندن database.json صفحه را از طریق IIS یا وب‌سرور محلی اجرا کنید.", "error");
     });
   });
 })();
