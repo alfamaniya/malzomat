@@ -257,6 +257,25 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
     loadAppDatabase().then(function (loaded) {
       database = loaded; loadDraft(); renderDraft();
       if (search) search.addEventListener("input", renderDraft);
+      document.addEventListener("click", function (event) {
+        const button = event.target.closest("button");
+        if (!button) return;
+        const text = button.innerText.replace(/\s+/g, " ").trim();
+        if (text.includes("کپی شماره")) {
+          const node = Array.from(document.querySelectorAll(".dir-ltr")).find(function (element) {
+            return /^HW-/.test(element.textContent.trim()) && element.textContent.trim().includes("1403-9042");
+          });
+          const code = node ? node.textContent.trim() : "HW-1403-9042";
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(function () { showAppNotice("شماره حواله کپی شد", code); }).catch(function () { showAppNotice("شماره حواله", code); });
+          else showAppNotice("شماره حواله", code);
+        } else if (text.includes("مشاهده و رهگیری")) {
+          const row = button.closest("tr");
+          const detail = row ? row.innerText.replace(/\s+/g, " ").trim() : "جزئیات حواله نمونه HW-1403-9042";
+          showAppNotice("جزئیات و رهگیری حواله", detail);
+        } else if (text.includes("notifications")) {
+          showAppNotice("اعلان‌های نمونه", "در این نسخه داده‌های نمونه نمایش داده می‌شوند؛ اعلان سرور واقعی متصل نیست.");
+        }
+      });
       if (addButton) addButton.addEventListener("click", showAddDialog);
       if (recalcButton) recalcButton.addEventListener("click", function () {
         syncDraftFromInputs(); renderDraft();
