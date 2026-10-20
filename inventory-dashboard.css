@@ -1,0 +1,10 @@
+/* ابزارهای اختصاصی داشبورد موجودی */
+.inventory-app-pager{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 16px;background:#fff;border-top:1px solid #dce5f5;font-size:.85rem}
+.inventory-app-pager .pager-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.inventory-app-pager button{border:1px solid #c5c5d3;border-radius:8px;background:#f8f9ff;padding:6px 12px;color:#00236f;cursor:pointer}
+.inventory-app-pager button:disabled{opacity:.4;cursor:not-allowed}.inventory-app-pager button[aria-current=page]{background:#00236f;color:#fff;border-color:#00236f}
+.app-toast{position:fixed;z-index:1000;bottom:20px;left:20px;max-width:min(420px,calc(100vw - 40px));padding:14px 18px;background:#0b1c30;color:#fff;border-radius:12px;box-shadow:0 8px 30px #0b1c3033;line-height:1.8}.app-toast strong{display:block;margin-bottom:3px}.app-toast p{margin:0;color:#eaf1ff;font-size:.85rem}
+.app-modal-overlay{position:fixed;inset:0;z-index:999;display:grid;place-items:center;padding:18px;background:rgba(11,28,48,.58)}
+.app-dialog{width:min(540px,100%);max-height:90vh;overflow:auto;background:#fff;color:#0b1c30;border-radius:18px;padding:22px;box-shadow:0 20px 60px #0b1c3044}.app-dialog h2{font-size:1.2rem;font-weight:700;margin:0 0 18px}.app-dialog form{display:grid;gap:12px}.app-dialog label{display:grid;gap:6px;font-size:.85rem;color:#444651}.app-dialog input,.app-dialog select{min-height:40px;width:100%;border:1px solid #c5c5d3;border-radius:8px;padding:8px 10px;background:#f8f9ff;color:#0b1c30}.app-dialog .dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}.app-dialog button{border:0;border-radius:8px;padding:9px 14px;cursor:pointer}.app-dialog .primary-action{background:#00236f;color:#fff}.app-dialog .secondary-action{background:#eff4ff;color:#00236f}
+@media(max-width:768px){.inventory-app-pager{padding:10px}.app-dialog{padding:16px}}
+@media print{aside,header,.inventory-app-pager,button{display:none!important}main{margin:0!important;padding:0!important}}
