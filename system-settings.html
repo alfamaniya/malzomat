@@ -71,7 +71,7 @@
 <span class="font-label-sm text-label-sm text-on-surface-variant">همگام‌سازی سرور:</span>
 <span class="font-tabular-data text-tabular-data text-on-surface font-semibold dir-ltr">1403/08/28 - 10:48:12</span>
 </div>
-<button class="bg-surface-container text-primary hover:bg-surface-container-high px-space-md py-space-xs rounded-xl flex items-center gap-space-xs font-label-md text-label-md transition-colors shadow-sm" onclick="triggerDbBackup()" type="button">
+<button class="bg-surface-container text-primary hover:bg-surface-container-high px-space-md py-space-xs rounded-xl flex items-center gap-space-xs font-label-md text-label-md transition-colors shadow-sm" type="button">
 <span class="material-symbols-outlined text-[18px]">backup</span>
 <span>بک‌آپ آنی دیتابیس</span>
 </button>
@@ -85,31 +85,31 @@
 <!-- Main System Settings Navigation Tabs -->
 <div class="px-space-margin bg-surface-container-lowest shadow-sm">
 <div class="flex items-center gap-space-xs overflow-x-auto py-space-xs scrollbar-none" id="adminTabs">
-<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap bg-primary text-on-primary font-bold shadow-sm transition-all" id="btn-tab-coding" onclick="switchAdminTab('tab-coding')" type="button">
+<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap bg-primary text-on-primary font-bold shadow-sm transition-all" id="btn-tab-coding" type="button">
 <span class="material-symbols-outlined text-[18px]">qr_code_2</span>
 <span>۱. ساختار کدینگ و کاتالوگ اقلام</span>
 </button>
-<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-categories" onclick="switchAdminTab('tab-categories')" type="button">
+<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-categories" type="button">
 <span class="material-symbols-outlined text-[18px]">category</span>
 <span>۲. دسته‌بندی و گروه‌های کالا</span>
 </button>
-<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-units" onclick="switchAdminTab('tab-units')" type="button">
+<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-units" type="button">
 <span class="material-symbols-outlined text-[18px]">straighten</span>
 <span>۳. واحدهای سنجش و تبدیل</span>
 </button>
-<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-destinations" onclick="switchAdminTab('tab-destinations')" type="button">
+<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-destinations" type="button">
 <span class="material-symbols-outlined text-[18px]">local_shipping</span>
 <span>۴. محل‌های ارسال و باربری</span>
 </button>
-<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-approvals" onclick="switchAdminTab('tab-approvals')" type="button">
+<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-approvals" type="button">
 <span class="material-symbols-outlined text-[18px]">rule_settings</span>
 <span>۵. گردش کار و سطوح تاییدات</span>
 </button>
-<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-numbering" onclick="switchAdminTab('tab-numbering')" type="button">
+<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-numbering" type="button">
 <span class="material-symbols-outlined text-[18px]">format_list_numbered_rtl</span>
 <span>۶. قالب شماره‌گذاری اسناد</span>
 </button>
-<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-security" onclick="switchAdminTab('tab-security')" type="button">
+<button class="admin-tab-btn flex items-center gap-space-xs px-space-md py-space-sm rounded-lg font-label-md text-label-md whitespace-nowrap text-on-surface-variant hover:bg-surface-container-low transition-all" id="btn-tab-security" type="button">
 <span class="material-symbols-outlined text-[18px]">shield_person</span>
 <span>۷. سطوح دسترسی و انبارداران</span>
 </button>
@@ -250,16 +250,16 @@
 <span class="font-label-sm text-label-sm text-error font-semibold">* کلیه فیلدهای نشان‌دار الزامی می‌باشند</span>
 </div>
 </div>
-<form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md" id="itemCatalogForm" onsubmit="event.preventDefault(); saveItemToDb();">
+<form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md" id="itemCatalogForm">
 <!-- Item Code -->
 <div class="flex flex-col gap-1">
 <label class="font-label-sm text-label-sm text-on-surface-variant font-semibold flex items-center justify-between">
 <span>کد استاندارد تدارکاتی (SKU) <span class="text-error font-bold">*</span></span>
-<span class="text-secondary cursor-pointer hover:underline text-[11px]" onclick="autoFillCode()">تولید خودکار</span>
+<button type="button" class="text-secondary cursor-pointer hover:underline text-[11px]" data-auto-fill-code>تولید خودکار</button>
 </label>
 <div class="relative">
 <input class="w-full h-9 px-space-md bg-surface-container-low rounded-lg text-on-surface font-tabular-data text-tabular-data font-bold uppercase focus:bg-surface-container-lowest focus:shadow-sm focus:outline-none transition-all" dir="ltr" id="procurement_code" placeholder="مثال: PR-01-22-0045" required="" type="text" value="PR-04-18-SS-0429"/>
-<button class="absolute left-2 top-2 text-outline hover:text-primary" onclick="navigator.clipboard.writeText(document.getElementById('procurement_code').value)" title="کپی کد" type="button">
+<button class="absolute left-2 top-2 text-outline hover:text-primary" data-copy-code-input="procurement_code" title="کپی کد" type="button">
 <span class="material-symbols-outlined text-[18px]">content_copy</span>
 </button>
 </div>
@@ -399,7 +399,7 @@
 <button class="px-space-lg h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md transition-colors" type="reset">
               پاکسازی فرم
             </button>
-<button class="px-space-md h-9 rounded-lg bg-secondary text-on-secondary hover:bg-secondary-container font-label-md text-label-md flex items-center gap-1 transition-colors" onclick="printBarcodeLabel()" type="button">
+<button class="px-space-md h-9 rounded-lg bg-secondary text-on-secondary hover:bg-secondary-container font-label-md text-label-md flex items-center gap-1 transition-colors" type="button">
 <span class="material-symbols-outlined text-[18px]">print</span>
 <span>چاپ تگ بارکد و QR فیزیکی</span>
 </button>
@@ -865,7 +865,7 @@
 </div>
 </div>
 <div class="flex items-center justify-between gap-space-sm pt-space-xs">
-<button class="flex-1 bg-primary text-on-primary hover:bg-primary-container px-space-md py-2 rounded-lg font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors shadow-sm" onclick="triggerDbBackup()" type="button">
+<button class="flex-1 bg-primary text-on-primary hover:bg-primary-container px-space-md py-2 rounded-lg font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
 <span class="material-symbols-outlined text-[18px]">cloud_download</span>
 <span>ایجاد نسخه پشتیبان کامل (Full Backup Dump)</span>
 </button>
@@ -881,7 +881,7 @@
 <span class="material-symbols-outlined text-primary">barcode_scanner</span>
 <span class="font-headline-md text-headline-md text-on-surface font-bold">شناسنامه و تگ بارکد فیزیکی کالا</span>
 </div>
-<button class="text-outline hover:text-on-surface" onclick="closeBarcodeModal()" type="button">
+<button class="text-outline hover:text-on-surface" data-close-barcode type="button">
 <span class="material-symbols-outlined">close</span>
 </button>
 </div>
@@ -928,8 +928,8 @@
 </div>
 </div>
 <div class="flex items-center justify-end gap-space-sm">
-<button class="px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md" onclick="closeBarcodeModal()" type="button">انصراف</button>
-<button class="px-space-lg py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1 shadow-sm" onclick="window.print()" type="button">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md" data-close-barcode type="button">انصراف</button>
+<button class="px-space-lg py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1 shadow-sm" data-print-barcode type="button">
 <span class="material-symbols-outlined text-[18px]">print</span>
           ارسال به پرینتر حرارتی تگ
         </button>
