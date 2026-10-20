@@ -1,0 +1,6 @@
+/* گزارش‌ها، فیلتر و خروجی داده */
+.report-app-pager{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#fff;border-top:1px solid #dce5f5;padding:12px 16px;font-size:.85rem}
+.report-app-pager .pager-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.report-app-pager button{border:1px solid #c5c5d3;border-radius:8px;background:#f8f9ff;padding:6px 12px;color:#00236f;cursor:pointer}.report-app-pager button[aria-current=page]{background:#00236f;color:#fff}.report-app-pager button:disabled{opacity:.4;cursor:not-allowed}
+.report-app-status{margin:10px 0;padding:10px 14px;background:#eff4ff;border-radius:10px;color:#00236f;font-size:.85rem}
+.app-toast{position:fixed;z-index:1000;bottom:20px;left:20px;max-width:min(420px,calc(100vw - 40px));padding:14px 18px;background:#0b1c30;color:#fff;border-radius:12px;box-shadow:0 8px 30px #0b1c3033;line-height:1.8}.app-toast strong{display:block;margin-bottom:3px}.app-toast p{margin:0;color:#eaf1ff;font-size:.85rem}
+@media print{aside,header,button,.report-app-pager,.tab-btn{display:none!important}main{margin:0!important;padding:0!important}body{background:#fff!important}}
