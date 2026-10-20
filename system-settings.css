@@ -14,3 +14,7 @@
 .app-modal-overlay{position:fixed;inset:0;z-index:999;display:grid;place-items:center;padding:18px;background:rgba(11,28,48,.58)}.app-dialog{width:min(560px,100%);max-height:90vh;overflow:auto;background:#fff;color:#0b1c30;border-radius:18px;padding:22px;box-shadow:0 20px 60px #0b1c3044}.app-dialog h2{font-size:1.2rem;font-weight:700;margin:0 0 18px}.app-dialog form{display:grid;gap:12px}.app-dialog label{display:grid;gap:6px;font-size:.85rem;color:#444651}.app-dialog input,.app-dialog select{min-height:40px;width:100%;border:1px solid #c5c5d3;border-radius:8px;padding:8px 10px;background:#f8f9ff;color:#0b1c30}.app-dialog .dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}.app-dialog button{border:0;border-radius:8px;padding:9px 14px;cursor:pointer}.app-dialog .primary-action{background:#00236f;color:#fff}.app-dialog .secondary-action{background:#eff4ff;color:#00236f}
 @media(max-width:768px){.settings-dynamic-panel{padding:12px}.settings-dynamic-panel table{min-width:700px}.app-dialog{padding:16px}}
 @media print{aside,header,button{display:none!important}main{margin:0!important;padding:0!important}}
+
+
+/* Styles moved out of system-settings.html */
+@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;font-family:'Noto Sans','Vazirmatn',sans-serif;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
