@@ -6,3 +6,7 @@
 .gate-app-log-filter{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.gate-app-log-filter button{border:1px solid #c5c5d3;border-radius:999px;padding:6px 12px;background:#fff;color:#444651;cursor:pointer}.gate-app-log-filter button[aria-pressed=true]{background:#00236f;color:#fff;border-color:#00236f}
 @media(max-width:768px){.gate-app-count{width:62px}}
 @media print{aside,header,button,.gate-app-log-filter{display:none!important}main{margin:0!important;padding:0!important}}
+
+
+/* Styles moved out of dispatch-security-pass.html to keep page-specific CSS external. */
+@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;font-family:'Noto Sans','Vazirmatn',sans-serif;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
