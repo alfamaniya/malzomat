@@ -361,6 +361,7 @@ function downloadAppFile(filename, content, mimeType) {
     });
     const form=document.getElementById("itemCatalogForm");
     if(form){
+      form.addEventListener("submit",function(event){event.preventDefault();saveItemToDb();});
       const parts=findFormParts();
       if(parts&&parts.inputs[0]&&database.items.some(function(item){return item.code===parts.inputs[0].value;}))editCatalogItem(parts.inputs[0].value);
       else if(parts&&parts.inputs[0])parts.inputs[0].value="MLZ-"+String(Math.max(Number(database.settings.nextSkuNumber||101),database.items.length+1)).padStart(4,"0");
@@ -387,7 +388,15 @@ function downloadAppFile(filename, content, mimeType) {
       }
       const button=event.target.closest("button");if(!button)return;
       const text=button.innerText.replace(/\s+/g," ").trim();
-      if(button.hasAttribute("data-add-category"))addCategory();
+      if(button.hasAttribute("data-auto-fill-code")){autoFillCode();return;}
+      else if(button.hasAttribute("data-copy-code-input")){
+        const input=document.getElementById(button.dataset.copyCodeInput);
+        if(input&&navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(input.value).then(function(){showAppNotice("کپی شد",input.value);}).catch(function(){showAppNotice("کد کالا",input.value);});
+        else if(input)showAppNotice("کد کالا",input.value);
+        return;
+      } else if(button.hasAttribute("data-close-barcode")){closeBarcodeModal();return;}
+      else if(button.hasAttribute("data-print-barcode")){window.print();return;}
+      else if(button.hasAttribute("data-add-category"))addCategory();
       else if(button.hasAttribute("data-add-unit"))addUnit();
       else if(button.hasAttribute("data-add-destination"))addDestination();
       else if(button.hasAttribute("data-add-user"))addUser();
