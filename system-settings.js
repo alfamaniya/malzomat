@@ -344,7 +344,7 @@ function downloadAppFile(filename, content, mimeType) {
       localStorage.setItem(APP_DB_STORAGE_KEY, JSON.stringify(seed));
       localStorage.removeItem("malzomat.voucher.draft.v1");
       showAppNotice("داده‌های نمونه بازگردانی شد", "صفحه برای بارگذاری دوباره به‌روزرسانی می‌شود.");
-      window.location.reload();
+      setTimeout(function () { window.location.reload(); }, 450);
     } catch (error) {
       console.error(error);
       showAppNotice("بازگردانی ناموفق بود", "اجرای صفحه را از طریق IIS یا وب‌سرور محلی بررسی کنید.", "error");
