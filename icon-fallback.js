@@ -17,7 +17,7 @@
     gpp_good:"✓", health_and_safety:"+", history:"↺", history_edu:"↺", home:"⌂",
     how_to_reg:"✓", hub:"⊙", info:"i", input:"↧", inventory:"▦", inventory_2:"▣",
     last_page:"»", local_gas_station:"⛽", local_shipping:"🚚", lock:"▣", monetization_on:"$",
-    move_to_inbox:"↙", notifications:"♢", open_in_new:"↗", outbox:"↗", output:"↗",
+    move_to_inbox:"↙", notifications:"🔔", open_in_new:"↗", outbox:"↗", output:"↗",
     payments:"$", person:"●", person_check:"●✓", picture_as_pdf:"PDF", pie_chart:"◔",
     pin_drop:"⌖", post_add:"▤+", precision_manufacturing:"⚙", print:"⎙", priority_high:"!",
     published_with_changes:"↻", qr_code_2:"▦", qr_code_scanner:"▦", query_stats:"▥",
