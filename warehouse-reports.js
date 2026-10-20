@@ -296,6 +296,7 @@ function appAddTransaction(database, item, type, quantity, destination, extra) {
     document.addEventListener("click",function (event) {
       const printButton=event.target.closest("button");
       if(printButton&&printButton.innerText.includes("چاپ")){window.print();return;}
+      if(printButton&&printButton.innerText.includes("notifications")){showAppNotice("اعلان‌های نمونه","در این نسخه اعلان‌های سرور واقعی متصل نیستند.");return;}
       const pageButton=event.target.closest("[data-report-page]");
       if (pageButton && !pageButton.disabled) { currentPage=Number(pageButton.dataset.reportPage)||1; renderTable(); }
     });
