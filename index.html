@@ -24,40 +24,53 @@
 </head>
 <body class="bg-background text-on-surface antialiased">
   <aside class="fixed right-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none">
-    <div class="flex flex-col">
-      <a href="index.html" class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container no-underline">
-        <span class="material-symbols-outlined text-primary text-2xl">warehouse</span>
-        <div class="flex flex-col">
-          <span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">سامانه انبارداری</span>
-          <span class="font-label-sm text-label-sm text-on-surface-variant">مدیریت هوشمند زنجیره تدارکات</span>
-        </div>
-      </a>
-      <div class="px-space-md py-space-sm">
-        <div class="text-label-sm font-label-sm text-outline px-space-sm mb-space-xs">بخش‌های سامانه</div>
-        <nav class="flex flex-col gap-1" aria-label="صفحات سامانه">
-          <a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-all bg-primary text-on-primary font-bold shadow-sm" href="index.html">
+      <div class="flex flex-col">
+        <a href="index.html" class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container no-underline">
+          <span class="material-symbols-outlined text-primary text-2xl">warehouse</span>
+          <div class="flex flex-col">
+            <span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">سامانه انبارداری</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">مدیریت هوشمند زنجیره تدارکات</span>
+          </div>
+        </a>
+        <div class="px-space-md py-space-sm">
+          <div class="text-label-sm font-label-sm text-outline px-space-sm mb-space-xs">بخش‌های سامانه</div>
+          <nav class="flex flex-col gap-1" data-active-classes="bg-primary text-on-primary font-bold shadow-sm" aria-label="صفحات سامانه">
+          <a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-all bg-primary text-on-primary font-bold shadow-sm" data-path="home" href="index.html">
             <span class="material-symbols-outlined text-[20px]">home</span><span>صفحه اصلی</span>
           </a>
-          <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-body-md font-body-md" href="inventory-dashboard.html">
+          <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-body-md font-body-md" data-path="dashboard-inventory" href="inventory-dashboard.html">
             <span class="material-symbols-outlined text-[20px]">inventory_2</span><span>داشبورد و کنترل موجودی</span>
           </a>
-          <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-body-md font-body-md" href="consumption-voucher.html">
-            <span class="material-symbols-outlined text-[20px]">assignment</span><span>حواله مصرف</span>
+          <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-body-md font-body-md" data-path="consumption-voucher" href="consumption-voucher.html">
+            <span class="material-symbols-outlined text-[20px]">assignment_turned_in</span><span>حواله مصرف</span>
           </a>
-          <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-body-md font-body-md" href="dispatch-security-pass.html">
+          <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-body-md font-body-md" data-path="dispatch-security-pass" href="dispatch-security-pass.html">
             <span class="material-symbols-outlined text-[20px]">local_shipping</span><span>خروج کالا و برگه حراست</span>
           </a>
-          <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-body-md font-body-md" href="warehouse-reports.html">
+          <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-body-md font-body-md" data-path="warehouse-reports" href="warehouse-reports.html">
             <span class="material-symbols-outlined text-[20px]">analytics</span><span>گزارش‌های انبار</span>
           </a>
-          <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-body-md font-body-md" href="system-settings.html">
+          <a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all text-body-md font-body-md" data-path="system-settings" href="system-settings.html">
             <span class="material-symbols-outlined text-[20px]">settings</span><span>تنظیمات و داده‌های پایه</span>
           </a>
-        </nav>
+          </nav>
+        </div>
       </div>
-    </div>
-    <div class="p-space-md text-label-sm text-on-surface-variant">ملزومات · سامانه انبارداری</div>
-  </aside>
+      <div class="p-space-md m-space-sm bg-surface-container rounded-xl flex flex-col gap-space-xs">
+        <div class="flex items-center justify-between text-label-sm font-label-sm">
+          <span class="text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">database</span>اتصال پایگاه تدارکات</span>
+          <span class="text-tertiary-container font-semibold">برقرار</span>
+        </div>
+        <div class="flex items-center justify-between text-label-sm font-label-sm">
+          <span class="text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">cloud_sync</span>پشتیبان‌گیری خودکار</span>
+          <span class="text-on-surface">۱۰:۰۰ امروز</span>
+        </div>
+        <div class="pt-space-xs flex items-center justify-between font-label-sm text-label-sm text-outline">
+          <span class="dir-ltr text-left">نسخه ۳.۴.۰</span>
+          <span class="bg-surface-container-highest px-space-xs py-0.5 rounded text-on-surface-variant">پایدار</span>
+        </div>
+      </div>
+    </aside>
 
   <main class="mr-72 min-h-screen p-space-xl">
     <header class="mb-space-xl">
